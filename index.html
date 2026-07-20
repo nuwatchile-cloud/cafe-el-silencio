@@ -1,1060 +1,258 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Café El Silencio — Café de Colombia</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --white:       #FAFAF7;
-    --off-white:   #F2F0EA;
-    --parchment:   #E8E3D5;
-    --dust:        #D4CCBA;
-    --stone:       #B5AB96;
-    --olive:       #7A7A5A;
-    --olive-dark:  #585840;
-    --bark:        #3D3B2E;
-    --ink:         #1E1D16;
-    --accent:      #8B8B60;
-    --nav-h:       72px;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--white);
-    color: var(--ink);
-    font-family: 'Outfit', sans-serif;
-    font-weight: 300;
-    overflow-x: hidden;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    height: var(--nav-h);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 60px;
-    z-index: 100;
-    background: rgba(250,250,247,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--parchment);
-    transition: border-color 0.4s;
-  }
-
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-weight: 400;
-    color: var(--ink);
-    text-decoration: none;
-    letter-spacing: 0.02em;
-    z-index: 101;
-  }
-
-  .nav-logo span {
-    font-style: italic;
-    color: var(--olive);
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 40px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    text-decoration: none;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--stone);
-    transition: color 0.3s;
-  }
-
-  .nav-links a:hover { color: var(--olive-dark); }
-
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .nav-cta {
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--white);
-    background: var(--olive-dark);
-    padding: 10px 26px;
-    text-decoration: none;
-    transition: background 0.3s;
-  }
-
-  .nav-cta:hover { background: var(--olive); }
-
-  .menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 6px;
-    z-index: 101;
-  }
-
-  .menu-toggle span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--ink);
-    transition: 0.3s;
-  }
-
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: calc(var(--nav-h) + 60px) 60px 80px;
-    position: relative;
-    background: var(--white);
-    overflow: hidden;
-  }
-
-  .hero-bg-word {
-    position: absolute;
-    bottom: -30px;
-    right: -20px;
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(160px, 22vw, 300px);
-    font-weight: 400;
-    color: var(--off-white);
-    line-height: 1;
-    pointer-events: none;
-    user-select: none;
-    white-space: nowrap;
-    letter-spacing: -0.04em;
-  }
-
-  .hero-inner {
-    max-width: 760px;
-    position: relative;
-    z-index: 2;
-  }
-
-  .hero-eyebrow {
-    font-size: 10px;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--olive);
-    margin-bottom: 28px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 32px;
-    height: 1px;
-    background: var(--olive);
-  }
-
-  .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(52px, 7vw, 96px);
-    font-weight: 400;
-    line-height: 1.0;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    margin-bottom: 32px;
-  }
-
-  .hero-title em {
-    font-style: italic;
-    color: var(--olive);
-  }
-
-  .hero-desc {
-    font-size: 16px;
-    line-height: 1.85;
-    color: var(--stone);
-    max-width: 480px;
-    margin-bottom: 52px;
-    font-weight: 300;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 28px;
-    align-items: center;
-  }
-
-  .btn-primary {
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--white);
-    background: var(--ink);
-    padding: 16px 40px;
-    text-decoration: none;
-    transition: background 0.3s;
-    display: inline-block;
-  }
-
-  .btn-primary:hover { background: var(--bark); }
-
-  .btn-ghost {
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--olive-dark);
-    text-decoration: none;
-    border-bottom: 1px solid var(--dust);
-    padding-bottom: 3px;
-    transition: border-color 0.3s;
-  }
-
-  .btn-ghost:hover { border-color: var(--olive); }
-
-  .hero-strip {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(to right, var(--parchment), var(--olive), var(--parchment));
-  }
-
-  /* ── SECCIONES GENERALES ── */
-  section { padding: 110px 60px; }
-
-  .section-label {
-    font-size: 10px;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--olive);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .section-label::before {
-    content: '';
-    display: block;
-    width: 28px;
-    height: 1px;
-    background: var(--olive);
-  }
-
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(36px, 4.5vw, 58px);
-    font-weight: 400;
-    line-height: 1.1;
-    color: var(--ink);
-  }
-
-  .section-title em { font-style: italic; color: var(--olive); }
-
-  /* ── ORIGIN BAND ── */
-  .origin-band {
-    background: var(--off-white);
-    padding: 64px 60px;
-    display: flex;
-    align-items: center;
-    gap: 80px;
-    border-top: 1px solid var(--parchment);
-    border-bottom: 1px solid var(--parchment);
-  }
-
-  .origin-band-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 13px;
-    font-style: italic;
-    color: var(--stone);
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  .origin-facts {
-    display: flex;
-    gap: 64px;
-    flex: 1;
-  }
-
-  .origin-val {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    font-weight: 400;
-    color: var(--olive-dark);
-    line-height: 1;
-  }
-
-  .origin-key {
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--stone);
-    margin-top: 6px;
-  }
-
-  .origin-divider {
-    width: 1px;
-    height: 60px;
-    background: var(--parchment);
-    flex-shrink: 0;
-  }
-
-  /* ── ABOUT ── */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 100px;
-    align-items: center;
-  }
-
-  .about-body {
-    font-size: 15px;
-    line-height: 1.9;
-    color: var(--stone);
-    margin-top: 28px;
-    margin-bottom: 20px;
-  }
-
-  .about-body + .about-body { margin-top: 0; }
-
-  .about-visual { position: relative; }
-
-  .about-card-big {
-    background: var(--off-white);
-    border: 1px solid var(--parchment);
-    padding: 56px 48px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .about-card-big::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--olive);
-  }
-
-  .about-quote {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
-    font-style: italic;
-    font-weight: 400;
-    line-height: 1.55;
-    color: var(--bark);
-  }
-
-  .about-quote-mark {
-    font-family: 'Playfair Display', serif;
-    font-size: 80px;
-    color: var(--parchment);
-    line-height: 0.7;
-    margin-bottom: 16px;
-    display: block;
-  }
-
-  .about-attr {
-    margin-top: 28px;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--olive);
-  }
-
-  .about-tag-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 28px;
-  }
-
-  .about-tag {
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--olive-dark);
-    border: 1px solid var(--dust);
-    padding: 6px 14px;
-  }
-
-  /* ── PRODUCTS ── */
-  .products { background: var(--off-white); }
-
-  .products-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 64px;
-  }
-
-  .products-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    background: var(--parchment);
-  }
-
-  .product-card {
-    background: var(--white);
-    padding: 52px 40px 44px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden;
-    transition: background 0.4s;
-  }
-
-  .product-card:hover { background: var(--off-white); }
-
-  .product-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: var(--olive);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s ease;
-  }
-
-  .product-card:hover::before { transform: scaleX(1); }
-
-  .product-size-visual {
-    display: flex;
-    align-items: flex-end;
-    gap: 6px;
-    margin-bottom: 40px;
-    height: 80px;
-  }
-
-  .bag {
-    background: var(--bark);
-    border-radius: 3px 3px 0 0;
-    width: 28px;
-    transition: background 0.4s;
-  }
-
-  .product-card:hover .bag { background: var(--olive-dark); }
-
-  .size-s .bag:nth-child(1) { height: 36px; }
-  .size-s .bag:nth-child(2) { height: 50px; }
-  .size-s .bag:nth-child(3) { height: 36px; }
-
-  .size-m .bag:nth-child(1) { height: 48px; }
-  .size-m .bag:nth-child(2) { height: 68px; }
-  .size-m .bag:nth-child(3) { height: 48px; }
-
-  .size-l .bag:nth-child(1) { height: 60px; }
-  .size-l .bag:nth-child(2) { height: 80px; }
-  .size-l .bag:nth-child(3) { height: 60px; }
-
-  .product-weight {
-    font-family: 'Playfair Display', serif;
-    font-size: 48px;
-    font-weight: 400;
-    color: var(--ink);
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-
-  .product-unit {
-    font-size: 13px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--stone);
-    margin-bottom: 20px;
-  }
-
-  .product-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-style: italic;
-    color: var(--bark);
-    margin-bottom: 14px;
-  }
-
-  .product-desc {
-    font-size: 13px;
-    line-height: 1.8;
-    color: var(--stone);
-    margin-bottom: 32px;
-    flex: 1;
-  }
-
-  .product-notes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 32px;
-  }
-
-  .note {
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--olive-dark);
-    background: var(--off-white);
-    padding: 5px 11px;
-    border: 1px solid var(--dust);
-    transition: background 0.3s;
-  }
-
-  .product-card:hover .note { background: var(--parchment); }
-
-  .product-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 24px;
-    border-top: 1px solid var(--parchment);
-    margin-top: auto;
-  }
-
-  .product-price {
-    font-family: 'Playfair Display', serif;
-    font-size: 30px;
-    font-weight: 400;
-    color: var(--olive-dark);
-  }
-
-  .btn-add {
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--white);
-    background: var(--ink);
-    padding: 12px 22px;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s;
-    font-family: 'Outfit', sans-serif;
-    display: inline-block;
-    white-space: nowrap;
-  }
-
-  .btn-add:hover { background: var(--olive-dark); }
-
-  /* ── PROCESS ── */
-  .process-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    margin-top: 72px;
-  }
-
-  .process-step {
-    padding: 40px 32px 40px 0;
-    border-right: 1px solid var(--parchment);
-  }
-
-  .process-step:last-child {
-    border-right: none;
-    padding-right: 0;
-    padding-left: 32px;
-  }
-
-  .process-step:not(:first-child):not(:last-child) {
-    padding: 40px 32px;
-  }
-
-  .process-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 48px;
-    font-weight: 400;
-    color: var(--parchment);
-    line-height: 1;
-    margin-bottom: 20px;
-  }
-
-  .process-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    color: var(--ink);
-    margin-bottom: 12px;
-  }
-
-  .process-desc {
-    font-size: 13px;
-    line-height: 1.8;
-    color: var(--stone);
-  }
-
-  /* ── CONTACT / CTA ── */
-  .cta-section {
-    background: var(--bark);
-    padding: 110px 60px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cta-section::before {
-    content: 'SILENCIO';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(80px, 14vw, 200px);
-    font-weight: 400;
-    color: rgba(255,255,255,0.03);
-    white-space: nowrap;
-    pointer-events: none;
-    letter-spacing: 0.1em;
-  }
-
-  .cta-eyebrow {
-    font-size: 10px;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--stone);
-    margin-bottom: 24px;
-  }
-
-  .cta-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(36px, 5vw, 64px);
-    font-weight: 400;
-    color: var(--off-white);
-    margin-bottom: 20px;
-    line-height: 1.1;
-    position: relative;
-  }
-
-  .cta-title em { font-style: italic; color: var(--dust); }
-
-  .cta-sub {
-    font-size: 15px;
-    color: var(--stone);
-    max-width: 420px;
-    margin: 0 auto 48px;
-    line-height: 1.8;
-  }
-
-  .cta-actions {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-
-  .btn-cta-primary {
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--ink);
-    background: var(--off-white);
-    padding: 16px 44px;
-    text-decoration: none;
-    transition: background 0.3s;
-  }
-
-  .btn-cta-primary:hover { background: var(--white); }
-
-  .btn-cta-ghost {
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--dust);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(212,204,186,0.4);
-    padding-bottom: 3px;
-    transition: border-color 0.3s, color 0.3s;
-  }
-
-  .btn-cta-ghost:hover { color: var(--off-white); border-color: var(--dust); }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--ink);
-    padding: 64px 60px 36px;
-  }
-
-  .footer-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding-bottom: 48px;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    color: var(--off-white);
-  }
-
-  .footer-logo span { font-style: italic; color: var(--olive); }
-
-  .footer-tagline {
-    font-size: 13px;
-    color: var(--stone);
-    margin-top: 10px;
-    max-width: 240px;
-    line-height: 1.7;
-  }
-
-  .footer-links { display: flex; gap: 64px; }
-
-  .footer-col-title {
-    font-size: 10px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--olive);
-    margin-bottom: 18px;
-  }
-
-  .footer-col-links { list-style: none; }
-  .footer-col-links li + li { margin-top: 10px; }
-
-  .footer-col-links a {
-    text-decoration: none;
-    font-size: 13px;
-    color: var(--stone);
-    transition: color 0.3s;
-  }
-
-  .footer-col-links a:hover { color: var(--off-white); }
-
-  .footer-bottom {
-    padding-top: 28px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 11px;
-    color: rgba(181,171,150,0.4);
-    letter-spacing: 0.08em;
-  }
-
-  /* ── ANIMACIONES DE SCROLL ── */
-  .fade-up {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.75s ease, transform 0.75s ease;
-  }
-
-  .fade-up.visible, .no-js .fade-up {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    nav { padding: 0 24px; }
-    
-    .menu-toggle { display: flex; }
-
-    .nav-links {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: var(--white);
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 32px;
-      transform: translateY(-100%);
-      transition: transform 0.4s ease;
-      z-index: 100;
-    }
-
-    .nav-links.active { transform: translateY(0); }
-    .nav-links a { font-size: 16px; }
-
-    .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .menu-toggle.active span:nth-child(2) { opacity: 0; }
-    .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-    section { padding: 72px 24px; }
-    .hero { padding: calc(var(--nav-h) + 32px) 24px 80px; }
-    .origin-band { flex-direction: column; gap: 32px; padding: 48px 24px; }
-    .origin-facts { flex-wrap: wrap; gap: 32px; justify-content: baseline; }
-    .origin-divider { display: none; }
-    .about-grid { grid-template-columns: 1fr; gap: 48px; }
-    .products-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-    .products-header p { text-align: left; }
-    .products-grid { grid-template-columns: 1fr; background: none; gap: 24px; }
-    .process-row { grid-template-columns: 1fr; gap: 40px; }
-    .process-step, .process-step:last-child, .process-step:not(:first-child):not(:last-child) {
-      border: none; padding: 0;
-    }
-    .cta-section { padding: 80px 24px; }
-    footer { padding: 48px 24px 28px; }
-    .footer-top { flex-direction: column; gap: 40px; }
-    .footer-links { flex-direction: column; gap: 40px; }
-  }
-</style>
-</head>
-<body class="no-js">
-
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">Café El <span>Silencio</span></a>
-  <ul class="nav-links">
-    <li><a href="#cafe">El Café</a></li>
-    <li><a href="#productos">Productos</a></li>
-    <li><a href="#proceso">Proceso</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-  </ul>
-  <div class="nav-right">
-    <a href="#productos" class="nav-cta">Comprar</a>
-    <button class="menu-toggle" aria-label="Abrir menú">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg-word">Silencio</div>
-  <div class="hero-inner">
-    <div class="hero-eyebrow">Café de origen · Colombia</div>
-    <h1 class="hero-title">Café El <em>Silencio</em></h1>
-    <p class="hero-desc">Variedad Castillo de las montañas colombianas. Tostión media, en grano — notas de chocolate, caramelo y una acidez limpia que lo dice todo.</p>
-    <div class="hero-actions">
-      <a href="#productos" class="btn-primary">Ver productos</a>
-      <a href="#cafe" class="btn-ghost">Nuestra historia</a>
-    </div>
-  </div>
-  <div class="hero-strip"></div>
-</section>
-
-<!-- ORIGIN BAND -->
-<div class="origin-band fade-up">
-  <div class="origin-band-title">Colombia · Origen único</div>
-  <div class="origin-facts">
-    <div class="origin-fact">
-      <div class="origin-val">Castillo</div>
-      <div class="origin-key">Variedad</div>
-    </div>
-    <div class="origin-divider"></div>
-    <div class="origin-fact">
-      <div class="origin-val">Media</div>
-      <div class="origin-key">Tostión</div>
-    </div>
-    <div class="origin-divider"></div>
-    <div class="origin-fact">
-      <div class="origin-val">Grano</div>
-      <div class="origin-key">Presentación</div>
-    </div>
-    <div class="origin-divider"></div>
-    <div class="origin-fact">
-      <div class="origin-val">100%</div>
-      <div class="origin-key">Arábica</div>
-    </div>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section id="cafe">
-  <div class="about-grid">
-    <div class="about-text fade-up">
-      <div class="section-label">El Café</div>
-      <h2 class="section-title">Nacido en las<br><em>montañas</em></h2>
-      <p class="about-body">Café El Silencio nace de la convicción de que el mejor café no necesita adornos. Solo tierra fértil, altura, y el trabajo honesto de quienes cultivan con paciencia.</p>
-      <p class="about-body">Trabajamos directamente con productores colombianos comprometidos con la calidad. Cada lote es trazable, fresco, y llega a tus manos días después del tueste.</p>
-      <div class="about-tag-row">
-        <span class="about-tag">Trato directo</span>
-        <span class="about-tag">Tostado fresco</span>
-        <span class="about-tag">Origen único</span>
-        <span class="about-tag">Sin intermediarios</span>
-      </div>
-    </div>
-    <div class="about-visual fade-up">
-      <div class="about-card-big">
-        <span class="about-quote-mark">"</span>
-        <p class="about-quote">El silencio es el primer ingrediente de un buen café.</p>
-        <div class="about-attr">— Café El Silencio</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRODUCTS -->
-<section id="productos" class="products">
-  <div class="products-header fade-up">
-    <div>
-      <div class="section-label">Productos</div>
-      <h2 class="section-title">Elige tu <em>medida</em></h2>
-    </div>
-    <p style="font-size: 13px; color: var(--stone); max-width: 280px; line-height: 1.8;">Mismo café, tres tamaños. Siempre en grano, siempre fresco.</p>
-  </div>
-
-  <div class="products-grid">
-    <div class="product-card fade-up">
-      <div class="product-size-visual size-s">
-        <div class="bag"></div><div class="bag"></div><div class="bag"></div>
-      </div>
-      <div class="product-weight">250</div>
-      <div class="product-unit">gramos · en grano</div>
-      <div class="product-name">El Pequeño</div>
-      <p class="product-desc">Perfecto para explorar. Ideal si buscas frescura máxima y quieres consumirlo en pocos días.</p>
-      <div class="product-notes">
-        <span class="note">Chocolate</span><span class="note">Caramelo</span><span class="note">Acidez cítrica</span>
-      </div>
-      <div class="product-footer">
-        <div class="product-price">$9.900</div>
-        <a class="btn-add" href="https://wa.me/573000000000?text=Hola%2C%20quiero%20pedir%20un%20Caf%C3%A9%20El%20Silencio%20de%20250g" target="_blank">WhatsApp</a>
-      </div>
-    </div>
-
-    <div class="product-card fade-up">
-      <div class="product-size-visual size-m">
-        <div class="bag"></div><div class="bag"></div><div class="bag"></div>
-      </div>
-      <div class="product-weight">500</div>
-      <div class="product-unit">gramos · en grano</div>
-      <div class="product-name">El Mediano</div>
-      <p class="product-desc">El favorito. Para quien ya sabe lo que quiere y lo quiere con frecuencia. El balance perfecto.</p>
-      <div class="product-notes">
-        <span class="note">Chocolate</span><span class="note">Caramelo</span><span class="note">Acidez cítrica</span>
-      </div>
-      <div class="product-footer">
-        <div class="product-price">$18.900</div>
-        <a class="btn-add" href="https://wa.me/573000000000?text=Hola%2C%20quiero%20pedir%20un%20Caf%C3%A9%20El%20Silencio%20de%20500g" target="_blank">WhatsApp</a>
-      </div>
-    </div>
-
-    <div class="product-card fade-up">
-      <div class="product-size-visual size-l">
-        <div class="bag"></div><div class="bag"></div><div class="bag"></div>
-      </div>
-      <div class="product-weight">2.500</div>
-      <div class="product-unit">gramos · en grano</div>
-      <div class="product-name">El Grande</div>
-      <p class="product-desc">Para el consumidor serio. Para la oficina o la familia. El mejor precio por gramo disponible.</p>
-      <div class="product-notes">
-        <span class="note">Chocolate</span><span class="note">Caramelo</span><span class="note">Acidez cítrica</span>
-      </div>
-      <div class="product-footer">
-        <div class="product-price">$50.000</div>
-        <a class="btn-add" href="https://wa.me/573000000000?text=Hola%2C%20quiero%20pedir%20un%20Caf%C3%A9%20El%20Silencio%20de%202.500g" target="_blank">WhatsApp</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section id="proceso">
-  <div class="fade-up">
-    <div class="section-label">Del campo a tu taza</div>
-    <h2 class="section-title">Así hacemos <em>el café</em></h2>
-  </div>
-  <div class="process-row">
-    <div class="process-step fade-up">
-      <div class="process-num">01</div>
-      <div class="process-title">Origen</div>
-      <p class="process-desc">Seleccionamos fincas colombianas de altura, donde el clima produce granos excepcionales.</p>
-    </div>
-    <div class="process-step fade-up">
-      <div class="process-num">02</div>
-      <div class="process-title">Selección</div>
-      <p class="process-desc">Solo los granos maduros recolectados a mano. Sin mezclas, solo la mejor calidad.</p>
-    </div>
-    <div class="process-step fade-up">
-      <div class="process-num">03</div>
-      <div class="process-title">Tostión</div>
-      <p class="process-desc">Tostamos en pequeños lotes para asegurar un balance perfecto entre acidez y dulzor.</p>
-    </div>
-    <div class="process-step fade-up">
-      <div class="process-num">04</div>
-      <div class="process-title">Envío</div>
-      <p class="process-desc">Empacado minuciosamente y despachado de inmediato para mantener frescura absoluta.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section id="contacto" class="cta-section">
-  <div class="cta-eyebrow">Café El Silencio</div>
-  <h2 class="cta-title">Empieza tu<br><em>ritual</em> hoy</h2>
-  <p class="cta-sub">Envíos a toda Colombia. Siempre en grano, siempre recién tostado.</p>
-  <div class="cta-actions">
-    <a href="#productos" class="btn-cta-primary">Ver productos</a>
-    <a href="https://www.instagram.com/" target="_blank" class="btn-cta-ghost">Instagram →</a>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-top">
-    <div>
-      <div class="footer-logo">Café El <span>Silencio</span></div>
-      <p class="footer-tagline">Variedad Castillo de Colombia. Tostión media, en grano, con trato directo al productor.</p>
-    </div>
-    <div class="footer-links">
-      <div>
-        <div class="footer-col-title">Productos</div>
-        <ul class="footer-col-links">
-          <li><a href="#productos">El Pequeño — 250g</a></li>
-          <li><a href="#productos">El Mediano — 500g</a></li>
-          <li><a href="#productos">El Grande — 2.500g</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Nosotros</div>
-        <ul class="footer-col-links">
-          <li><a href="#cafe">El Café</a></li>
-          <li><a href="#proceso">El Proceso</a></li>
-          <li><a href="#" target="_blank">Instagram</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 Café El Silencio. Hecho con cuidado en Colombia.</span>
-    <span>Política de privacidad</span>
-  </div>
-</footer>
-
-<script>
-  document.body.classList.remove('no-js');
-
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Café El Silencio — Café de Colombia</title>
   
-  menuToggle.addEventListener('click', () => {
-    menuToggle.classList.toggle('active');
-    navLinks.classList.toggle('active');
-  });
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+  
+  <!-- Estilos Profesionales Vinculados -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
 
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      menuToggle.classList.remove('active');
-      navLinks.classList.remove('active');
+  <!-- NAVEGACIÓN -->
+  <nav>
+    <a href="#" class="nav-logo">Café El <span>Silencio</span></a>
+    <ul class="nav-links">
+      <li><a href="#cafe">El Café</a></li>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#productos" class="nav-cta">Comprar</a>
+      <button class="menu-toggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-word">Silencio</div>
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Café de origen · Colombia</div>
+      <h1 class="hero-title">Café El <em>Silencio</em></h1>
+      <p class="hero-desc">Variedad Castillo de las montañas colombianas. Tostión media, en grano — notas de chocolate, caramelo y una acidez limpia que lo dice todo.</p>
+      <div class="hero-actions">
+        <a href="#productos" class="btn-primary">Ver productos</a>
+        <a href="#cafe" class="btn-ghost">Nuestra historia</a>
+      </div>
+    </div>
+    <div class="hero-strip"></div>
+  </section>
+
+  <!-- BANDA DE DATOS -->
+  <div class="origin-band fade-up">
+    <div class="origin-band-title">Colombia · Origen único</div>
+    <div class="origin-facts">
+      <div class="origin-fact">
+        <div class="origin-val">Castillo</div>
+        <div class="origin-key">Variedad</div>
+      </div>
+      <div class="origin-divider"></div>
+      <div class="origin-fact">
+        <div class="origin-val">Media</div>
+        <div class="origin-key">Tostión</div>
+      </div>
+      <div class="origin-divider"></div>
+      <div class="origin-fact">
+        <div class="origin-val">Grano</div>
+        <div class="origin-key">Presentación</div>
+      </div>
+      <div class="origin-divider"></div>
+      <div class="origin-fact">
+        <div class="origin-val">100%</div>
+        <div class="origin-key">Arábica</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HISTORIA -->
+  <section id="cafe">
+    <div class="about-grid">
+      <div class="about-text fade-up">
+        <div class="section-label">El Café</div>
+        <h2 class="section-title">Nacido en las<br><em>montañas</em></h2>
+        <p class="about-body">Café El Silencio nace de la convicción de que el mejor café no necesita adornos. Solo tierra fértil, altura, y el trabajo honesto de quienes cultivan con paciencia.</p>
+        <p class="about-body">Trabajamos directamente con productores colombianos comprometidos con la calidad. Cada lote es trazable, fresco, y llega a tus manos días después del tueste.</p>
+        <div class="about-tag-row">
+          <span class="about-tag">Trato directo</span>
+          <span class="about-tag">Tostado fresco</span>
+          <span class="about-tag">Origen único</span>
+        </div>
+      </div>
+      
+      <div class="about-visual fade-up">
+        <!-- 🖼️ IMAGEN LOCAL 1 (Reemplaza la URL de internet por tu archivo local cuando lo tengas) -->
+        <div class="image-container">
+          <img src="assets/images/hero-bg.jpg" default-src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800" alt="Preparación de café de especialidad">
+        </div>
+        
+        <div class="about-card-big">
+          <span class="about-quote-mark">"</span>
+          <p class="about-quote">El silencio es el primer ingrediente de un buen café.</p>
+          <div class="about-attr">— Café El Silencio</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section id="productos" class="products">
+    <div class="products-header fade-up">
+      <div>
+        <div class="section-label">Productos</div>
+        <h2 class="section-title">Elige tu <em>medida</em></h2>
+      </div>
+    </div>
+
+    <div class="products-grid">
+      <!-- 250g -->
+      <div class="product-card fade-up">
+        <div class="product-image-box">
+          <img src="assets/images/producto-250.jpg" default-src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=600" alt="Bolsa de café 250g">
+        </div>
+        <div class="product-weight">250</div>
+        <div class="product-unit">gramos · en grano</div>
+        <div class="product-name">El Pequeño</div>
+        <p class="product-desc">Perfecto para explorar. Ideal si buscas frescura máxima y quieres consumirlo en pocos días.</p>
+        <div class="product-notes">
+          <span class="note">Chocolate</span><span class="note">Caramelo</span>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$9.900</div>
+          <a class="btn-add" href="https://wa.me/573000000000?text=Hola%2C%20quiero%20pedir%20un%20Caf%C3%A9%20El%20Silencio%20de%20250g" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- 500g -->
+      <div class="product-card fade-up">
+        <div class="product-image-box">
+          <img src="assets/images/producto-500.jpg" default-src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600" alt="Bolsa de café 500g">
+        </div>
+        <div class="product-weight">500</div>
+        <div class="product-unit">gramos · en grano</div>
+        <div class="product-name">El Mediano</div>
+        <p class="product-desc">El favorito. Para quien ya sabe lo que quiere y lo quiere con frecuencia. El balance perfecto.</p>
+        <div class="product-notes">
+          <span class="note">Chocolate</span><span class="note">Caramelo</span>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$18.900</div>
+          <a class="btn-add" href="https://wa.me/573000000000?text=Hola%2C%20quiero%20pedir%20un%20Caf%C3%A9%20El%20Silencio%20de%20500g" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- 2500g -->
+      <div class="product-card fade-up">
+        <div class="product-image-box">
+          <img src="assets/images/producto-2500.jpg" default-src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?q=80&w=600" alt="Bolsa de café grande">
+        </div>
+        <div class="product-weight">2.500</div>
+        <div class="product-unit">gramos · en grano</div>
+        <div class="product-name">El Grande</div>
+        <p class="product-desc">Para el consumidor serio. Para la oficina o la familia. El mejor precio por gramo disponible.</p>
+        <div class="product-notes">
+          <span class="note">Chocolate</span><span class="note">Caramelo</span>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$50.000</div>
+          <a class="btn-add" href="https://wa.me/573000000000?text=Hola%2C%20quiero%20pedir%20un%20Caf%C3%A9%20El%20Silencio%20de%202.500g" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section id="proceso">
+    <div class="fade-up">
+      <div class="section-label">Del campo a tu taza</div>
+      <h2 class="section-title">Así hacemos <em>el café</em></h2>
+    </div>
+    <div class="process-row">
+      <div class="process-step fade-up">
+        <div class="process-num">01</div>
+        <div class="process-title">Origen</div>
+        <p class="process-desc">Seleccionamos fincas colombianas de altura, donde el clima produce granos excepcionales.</p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="process-num">02</div>
+        <div class="process-title">Selección</div>
+        <p class="process-desc">Solo los granos maduros recolectados a mano. Sin mezclas, solo la mejor calidad.</p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="process-num">03</div>
+        <div class="process-title">Tostión</div>
+        <p class="process-desc">Tostamos en pequeños lotes para asegurar un balance perfecto entre acidez y dulzor.</p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="process-num">04</div>
+        <div class="process-title">Envío</div>
+        <p class="process-desc">Empacado minuciosamente y despachado de inmediato para mantener frescura absoluta.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contacto" class="cta-section">
+    <div class="cta-eyebrow">Café El Silencio</div>
+    <h2 class="cta-title">Empieza tu<br><em>ritual</em> hoy</h2>
+    <p class="cta-sub">Envíos a toda Colombia. Siempre en grano, siempre recién tostado.</p>
+    <div class="cta-actions">
+      <a href="#productos" class="btn-cta-primary">Ver productos</a>
+      <a href="https://www.instagram.com/" target="_blank" class="btn-cta-ghost">Instagram →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Café El <span>Silencio</span></div>
+        <p class="footer-tagline">Variedad Castillo de Colombia. Tostión media, en grano, con trato directo al productor.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <div class="footer-col-title">Productos</div>
+          <ul class="footer-col-links">
+            <li><a href="#productos">El Pequeño — 250g</a></li>
+            <li><a href="#productos">El Mediano — 500g</a></li>
+            <li><a href="#productos">El Grande — 2.500g</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Nosotros</div>
+          <ul class="footer-col-links">
+            <li><a href="#cafe">El Café</a></li>
+            <li><a href="#proceso">El Proceso</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Café El Silencio. Hecho con cuidado en Colombia.</span>
+      <span>Política de privacidad</span>
+    </div>
+  </footer>
+
+  <!-- Scripts Profesionales Vinculados -->
+  <script src="js/main.js"></script>
+  
+  <!-- Script de respaldo por si aún no tienes tus imágenes listas -->
+  <script>
+    document.querySelectorAll('img').forEach(img => {
+      img.onerror = function() { 
+        if(this.getAttribute('default-src')) this.src = this.getAttribute('default-src'); 
+      };
     });
-  });
-
-  const fadeEls = document.querySelectorAll('.fade-up');
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) e.target.classList.add('visible');
-    });
-  }, { threshold: 0.05 });
-  fadeEls.forEach(el => obs.observe(el));
-
-  const nav = document.querySelector('nav');
-  window.addEventListener('scroll', () => {
-    nav.style.borderBottomColor = window.scrollY > 40 ? 'var(--dust)' : 'var(--parchment)';
-  });
-</script>
+  </script>
 </body>
 </html>
