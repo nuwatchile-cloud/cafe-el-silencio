@@ -32,7 +32,7 @@ body {
 }
 
 /* ==========================================================================
-   2. NAVEGACIÓN (Navbar recortado con header.png)
+   2. NAVEGACIÓN (Corregido con logo.png al centro)
    ========================================================================== */
 nav {
   position: fixed;
@@ -40,13 +40,7 @@ nav {
   height: var(--nav-h);
   z-index: 1000;
   border-bottom: 1px solid var(--parchment);
-  
-  /* Efecto de corte: Se usa la franja central de la imagen */
-  background-image: linear-gradient(rgba(250, 250, 247, 0.85), rgba(250, 250, 247, 0.85)), 
-                    url('../assets/images/header.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover; 
+  background-color: var(--white); /* Fondo limpio, la imagen ahora es el logo */
 }
 
 .nav-content {
@@ -55,29 +49,30 @@ nav {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /* Distribuye izquierdo, centro y derecho */
   padding: 0 60px;
 }
 
-.nav-logo {
-  font-family: var(--font-serif);
-  font-size: 20px;
-  font-weight: 400;
-  color: var(--ink);
-  text-decoration: none;
-  letter-spacing: 0.02em;
-  z-index: 1001;
+/* Contenedor del Logo en el Centro */
+.nav-logo-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
-.nav-logo span { 
-  font-style: italic; 
-  color: var(--olive); 
+/* Controla el tamaño de tu logo.png para que no rompa el menú */
+.nav-logo-img {
+  height: calc(var(--nav-h) - 30px); /* Ajusta dinámicamente según el alto del nav */
+  width: auto;
+  object-fit: contain;
 }
 
 .nav-links { 
   display: flex; 
   gap: 40px; 
   list-style: none; 
+  align-items: center;
 }
 
 .nav-links a {
@@ -91,14 +86,13 @@ nav {
 }
 
 .nav-links a:hover { 
-  color: var(--olive-dark); 
+  color: var(--olive); 
 }
 
 .nav-right { 
   display: flex; 
   align-items: center; 
-  gap: 20px; 
-  z-index: 1001; 
+  gap: 40px; 
 }
 
 .nav-cta {
