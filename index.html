@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
   
-  <!-- Estilos Profesionales Vinculados -->
+  <!-- Estilos Vinculados -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -35,12 +35,13 @@
   </nav>
 
   <!-- HERO -->
+  <!-- Se aplica tu imagen header.png como fondo desde el CSS -->
   <section class="hero">
     <div class="hero-bg-word">Silencio</div>
     <div class="hero-inner">
       <div class="hero-eyebrow">Café de origen · Colombia</div>
       <h1 class="hero-title">Café El <em>Silencio</em></h1>
-      <p class="hero-desc">Variedad Castillo de las montañas colombianas. Tostión media, en grano — notas de chocolate, caramelo y una acidez limpia que lo dice todo.</p>
+      <p class="hero-desc">Variedad Castillo de las montañas colombianas. Seleccionado minuciosamente en presentaciones de gran volumen para los amantes del buen café.</p>
       <div class="hero-actions">
         <a href="#productos" class="btn-primary">Ver productos</a>
         <a href="#cafe" class="btn-ghost">Nuestra historia</a>
@@ -59,12 +60,7 @@
       </div>
       <div class="origin-divider"></div>
       <div class="origin-fact">
-        <div class="origin-val">Media</div>
-        <div class="origin-key">Tostión</div>
-      </div>
-      <div class="origin-divider"></div>
-      <div class="origin-fact">
-        <div class="origin-val">Grano</div>
+        <div class="origin-val">2.5 kg</div>
         <div class="origin-key">Presentación</div>
       </div>
       <div class="origin-divider"></div>
@@ -82,20 +78,15 @@
         <div class="section-label">El Café</div>
         <h2 class="section-title">Nacido en las<br><em>montañas</em></h2>
         <p class="about-body">Café El Silencio nace de la convicción de que el mejor café no necesita adornos. Solo tierra fértil, altura, y el trabajo honesto de quienes cultivan con paciencia.</p>
-        <p class="about-body">Trabajamos directamente con productores colombianos comprometidos con la calidad. Cada lote es trazable, fresco, y llega a tus manos días después del tueste.</p>
+        <p class="about-body">Nos especializamos en ofrecer lotes de volumen ideal (2.5 kg) pensados para hogares de alto consumo, oficinas y barras de café que no quieren comprometer la frescura ni la calidad del grano.</p>
         <div class="about-tag-row">
+          <span class="about-tag">Variedad Castillo</span>
           <span class="about-tag">Trato directo</span>
-          <span class="about-tag">Tostado fresco</span>
           <span class="about-tag">Origen único</span>
         </div>
       </div>
       
       <div class="about-visual fade-up">
-        <!-- 🖼️ IMAGEN LOCAL 1 (Reemplaza la URL de internet por tu archivo local cuando lo tengas) -->
-        <div class="image-container">
-          <img src="assets/images/hero-bg.jpg" default-src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800" alt="Preparación de café de especialidad">
-        </div>
-        
         <div class="about-card-big">
           <span class="about-quote-mark">"</span>
           <p class="about-quote">El silencio es el primer ingrediente de un buen café.</p>
@@ -105,67 +96,68 @@
     </div>
   </section>
 
-  <!-- PRODUCTOS -->
+  <!-- PRODUCTOS (Tus 3 productos reales de 2.5kg) -->
   <section id="productos" class="products">
     <div class="products-header fade-up">
       <div>
-        <div class="section-label">Productos</div>
-        <h2 class="section-title">Elige tu <em>medida</em></h2>
+        <div class="section-label">Productos disponibles</div>
+        <h2 class="section-title">Nuestras ediciones de <em>2.5 kg</em></h2>
       </div>
     </div>
 
     <div class="products-grid">
-      <!-- 250g -->
+      <!-- PRODUCTO 1: Medio-Alto En Grano (Cosecha Reciente) -->
       <div class="product-card fade-up">
         <div class="product-image-box">
-          <img src="assets/images/producto-250.jpg" default-src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=600" alt="Bolsa de café 250g">
+          <!-- Usamos tu imagen del café -->
+          <img src="assets/images/Cafe 2500gr.png" alt="Café El Silencio 2.5kg">
         </div>
-        <div class="product-weight">250</div>
-        <div class="product-unit">gramos · en grano</div>
-        <div class="product-name">El Pequeño</div>
-        <p class="product-desc">Perfecto para explorar. Ideal si buscas frescura máxima y quieres consumirlo en pocos días.</p>
+        <div class="product-weight">2.5 kg</div>
+        <div class="product-unit">En grano · Cosecha 2026</div>
+        <div class="product-name">Tostado Medio-Alto</div>
+        <p class="product-desc">Nuestra edición más robusta de este año. Un tueste medio-alto que resalta notas intensas, ideal para los que buscan un café con cuerpo y carácter.</p>
         <div class="product-notes">
-          <span class="note">Chocolate</span><span class="note">Caramelo</span>
-        </div>
-        <div class="product-footer">
-          <div class="product-price">$9.900</div>
-          <a class="btn-add" href="https://wa.me/573000000000?text=Hola%2C%20quiero%20pedir%20un%20Caf%C3%A9%20El%20Silencio%20de%20250g" target="_blank">WhatsApp</a>
-        </div>
-      </div>
-
-      <!-- 500g -->
-      <div class="product-card fade-up">
-        <div class="product-image-box">
-          <img src="assets/images/producto-500.jpg" default-src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600" alt="Bolsa de café 500g">
-        </div>
-        <div class="product-weight">500</div>
-        <div class="product-unit">gramos · en grano</div>
-        <div class="product-name">El Mediano</div>
-        <p class="product-desc">El favorito. Para quien ya sabe lo que quiere y lo quiere con frecuencia. El balance perfecto.</p>
-        <div class="product-notes">
-          <span class="note">Chocolate</span><span class="note">Caramelo</span>
-        </div>
-        <div class="product-footer">
-          <div class="product-price">$18.900</div>
-          <a class="btn-add" href="https://wa.me/573000000000?text=Hola%2C%20quiero%20pedir%20un%20Caf%C3%A9%20El%20Silencio%20de%20500g" target="_blank">WhatsApp</a>
-        </div>
-      </div>
-
-      <!-- 2500g -->
-      <div class="product-card fade-up">
-        <div class="product-image-box">
-          <img src="assets/images/producto-2500.jpg" default-src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?q=80&w=600" alt="Bolsa de café grande">
-        </div>
-        <div class="product-weight">2.500</div>
-        <div class="product-unit">gramos · en grano</div>
-        <div class="product-name">El Grande</div>
-        <p class="product-desc">Para el consumidor serio. Para la oficina o la familia. El mejor precio por gramo disponible.</p>
-        <div class="product-notes">
-          <span class="note">Chocolate</span><span class="note">Caramelo</span>
+          <span class="note">Castillo</span><span class="note">Intenso</span><span class="note">Fresco</span>
         </div>
         <div class="product-footer">
           <div class="product-price">$50.000</div>
-          <a class="btn-add" href="https://wa.me/573000000000?text=Hola%2C%20quiero%20pedir%20un%20Caf%C3%A9%20El%20Silencio%20de%202.500g" target="_blank">WhatsApp</a>
+          <a class="btn-add" href="https://wa.me/573000000000?text=Hola%2C%20quiero%20pedir%20el%20Caf%C3%A9%20de%202.5kg%20Tostado%20Medio-Alto%20(%2450.000)" target="_blank">Pedir</a>
+        </div>
+      </div>
+
+      <!-- PRODUCTO 2: Medio En Grano (Cosecha Reciente) -->
+      <div class="product-card fade-up">
+        <div class="product-image-box">
+          <img src="assets/images/Cafe 2500gr.png" alt="Café El Silencio 2.5kg">
+        </div>
+        <div class="product-weight">2.5 kg</div>
+        <div class="product-unit">En grano · Cosecha 2026</div>
+        <div class="product-name">Tostado Medio</div>
+        <p class="product-desc">El balance perfecto de la cosecha de este año. Tostión media que conserva la acidez limpia de la variedad Castillo y notas naturalmente acarameladas.</p>
+        <div class="product-notes">
+          <span class="note">Castillo</span><span class="note">Balanceado</span><span class="note">Fresco</span>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$47.500</div>
+          <a class="btn-add" href="https://wa.me/573000000000?text=Hola%2C%20quiero%20pedir%20el%20Caf%C3%A9%20de%202.5kg%20Tostado%20Medio%20(%2447.500)" target="_blank">Pedir</a>
+        </div>
+      </div>
+
+      <!-- PRODUCTO 3: Molido (Cosecha 2023) -->
+      <div class="product-card fade-up">
+        <div class="product-image-box bg-vintage">
+          <img src="assets/images/Cafe 2500gr.png" alt="Café El Silencio 2.5kg Molido">
+        </div>
+        <div class="product-weight">2.5 kg</div>
+        <div class="product-unit">Molido · Cosecha 2023</div>
+        <div class="product-name">Edición Vintage Molido</div>
+        <p class="product-desc">Una alternativa económica y lista para usar. Café variedad Castillo de la cosecha 2023 ya molido, ideal para preparaciones rápidas y tradicionales.</p>
+        <div class="product-notes">
+          <span class="note">Castillo</span><span class="note">Molido</span><span class="note">Precio Especial</span>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$45.000</div>
+          <a class="btn-add" href="https://wa.me/573000000000?text=Hola%2C%20quiero%20pedir%20el%20Caf%C3%A9%20de%202.5kg%20Molido%202023%20(%2445.000)" target="_blank">Pedir</a>
         </div>
       </div>
     </div>
@@ -175,28 +167,28 @@
   <section id="proceso">
     <div class="fade-up">
       <div class="section-label">Del campo a tu taza</div>
-      <h2 class="section-title">Así hacemos <em>el café</em></h2>
+      <h2 class="section-title">Así cuidamos <em>tu café</em></h2>
     </div>
     <div class="process-row">
       <div class="process-step fade-up">
         <div class="process-num">01</div>
         <div class="process-title">Origen</div>
-        <p class="process-desc">Seleccionamos fincas colombianas de altura, donde el clima produce granos excepcionales.</p>
+        <p class="process-desc">Seleccionamos fincas colombianas de altura, donde el clima produce granos excepcionales de variedad Castillo.</p>
       </div>
       <div class="process-step fade-up">
         <div class="process-num">02</div>
-        <div class="process-title">Selección</div>
-        <p class="process-desc">Solo los granos maduros recolectados a mano. Sin mezclas, solo la mejor calidad.</p>
+        <div class="process-title">Tostión</div>
+        <p class="process-desc">Manejamos perfiles precisos (medio y medio-alto) para destacar los mejores atributos del grano.</p>
       </div>
       <div class="process-step fade-up">
         <div class="process-num">03</div>
-        <div class="process-title">Tostión</div>
-        <p class="process-desc">Tostamos en pequeños lotes para asegurar un balance perfecto entre acidez y dulzor.</p>
+        <div class="process-title">Formato</div>
+        <p class="process-desc">Empacamos en formatos grandes de 2.5 kg para asegurar un suministro constante y el mejor precio.</p>
       </div>
       <div class="process-step fade-up">
         <div class="process-num">04</div>
-        <div class="process-title">Envío</div>
-        <p class="process-desc">Empacado minuciosamente y despachado de inmediato para mantener frescura absoluta.</p>
+        <div class="process-title">Entrega</div>
+        <p class="process-desc">Coordinamos la entrega directa a tu casa u oficina para que inicies tu ritual sin intermediarios.</p>
       </div>
     </div>
   </section>
@@ -205,7 +197,7 @@
   <section id="contacto" class="cta-section">
     <div class="cta-eyebrow">Café El Silencio</div>
     <h2 class="cta-title">Empieza tu<br><em>ritual</em> hoy</h2>
-    <p class="cta-sub">Envíos a toda Colombia. Siempre en grano, siempre recién tostado.</p>
+    <p class="cta-sub">Formatos de 2.5 kg ideales para los verdaderos amantes del café. Envíos directos.</p>
     <div class="cta-actions">
       <a href="#productos" class="btn-cta-primary">Ver productos</a>
       <a href="https://www.instagram.com/" target="_blank" class="btn-cta-ghost">Instagram →</a>
@@ -217,22 +209,15 @@
     <div class="footer-top">
       <div>
         <div class="footer-logo">Café El <span>Silencio</span></div>
-        <p class="footer-tagline">Variedad Castillo de Colombia. Tostión media, en grano, con trato directo al productor.</p>
+        <p class="footer-tagline">Variedad Castillo de Colombia. Formatos de 2.5 kg en grano y molido.</p>
       </div>
       <div class="footer-links">
         <div>
-          <div class="footer-col-title">Productos</div>
+          <div class="footer-col-title">Productos 2.5kg</div>
           <ul class="footer-col-links">
-            <li><a href="#productos">El Pequeño — 250g</a></li>
-            <li><a href="#productos">El Mediano — 500g</a></li>
-            <li><a href="#productos">El Grande — 2.500g</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer-col-title">Nosotros</div>
-          <ul class="footer-col-links">
-            <li><a href="#cafe">El Café</a></li>
-            <li><a href="#proceso">El Proceso</a></li>
+            <li><a href="#productos">Tostado Medio-Alto ($50.000)</a></li>
+            <li><a href="#productos">Tostado Medio ($47.500)</a></li>
+            <li><a href="#productos">Molido 2023 ($45.000)</a></li>
           </ul>
         </div>
       </div>
@@ -243,16 +228,7 @@
     </div>
   </footer>
 
-  <!-- Scripts Profesionales Vinculados -->
+  <!-- Scripts Vinculados -->
   <script src="js/main.js"></script>
-  
-  <!-- Script de respaldo por si aún no tienes tus imágenes listas -->
-  <script>
-    document.querySelectorAll('img').forEach(img => {
-      img.onerror = function() { 
-        if(this.getAttribute('default-src')) this.src = this.getAttribute('default-src'); 
-      };
-    });
-  </script>
 </body>
 </html>

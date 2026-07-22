@@ -86,8 +86,17 @@ nav {
   justify-content: center;
   padding: calc(var(--nav-h) + 60px) 60px 80px;
   position: relative;
-  background: var(--white);
+  /* Aquí vinculamos tu header.png con un degradado sutil para que el texto blanco/oscuro sea legible */
+  background: linear-gradient(rgba(250, 250, 247, 0.85), rgba(250, 250, 247, 0.95)), 
+              url('../assets/images/header.png') no-repeat center center;
+  background-size: cover;
   overflow: hidden;
+}
+
+/* Toque visual para el producto vintage/molido */
+.bg-vintage {
+  background-color: var(--parchment) !important;
+  opacity: 0.9;
 }
 
 .hero-bg-word {
