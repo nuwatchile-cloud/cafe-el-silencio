@@ -32,7 +32,7 @@ body {
 }
 
 /* ==========================================================================
-   2. NAVEGACIÓN (Corregido con logo.png al centro)
+   2. NAVEGACIÓN (Corrección de tamaño de logo y desborde)
    ========================================================================== */
 nav {
   position: fixed;
@@ -40,7 +40,7 @@ nav {
   height: var(--nav-h);
   z-index: 1000;
   border-bottom: 1px solid var(--parchment);
-  background-color: var(--white); /* Fondo limpio, la imagen ahora es el logo */
+  background-color: var(--white);
 }
 
 .nav-content {
@@ -49,23 +49,28 @@ nav {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Distribuye izquierdo, centro y derecho */
+  justify-content: space-between;
   padding: 0 60px;
 }
 
-/* Contenedor del Logo en el Centro */
+/* Contenedor del Logo: Forzamos a que no mida más que el nav */
 .nav-logo-box {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
+  max-height: var(--nav-h);
+  padding: 5px 0; /* Pequeño colchón para que no toque los bordes */
+  flex-shrink: 0; /* Evita que el logo se aplaste horizontalmente */
 }
 
-/* Controla el tamaño de tu logo.png para que no rompa el menú */
+/* Control estricto de la imagen */
 .nav-logo-img {
-  height: calc(var(--nav-h) - 30px); /* Ajusta dinámicamente según el alto del nav */
+  height: 100%; /* Ocupa el 100% del contenedor padre (restando el padding) */
+  max-height: 55px; /* Límite estricto en píxeles para que no desborde */
   width: auto;
-  object-fit: contain;
+  object-fit: contain; /* Mantiene la proporción perfecta sin deformar */
+  display: block;
 }
 
 .nav-links { 
@@ -747,11 +752,30 @@ footer {
 }
 
 /* ==========================================================================
-   12. RESPONSIVE DESIGN (Pantallas Pequeñas)
+   12. RESPONSIVE DESIGN (Ajustes para celulares)
    ========================================================================== */
 @media (max-width: 992px) {
-  .nav-content { padding: 0 30px; }
-  .nav-links { display: none; } /* En un entorno completo, el JS controlará esto */
+  .nav-content { 
+    padding: 0 20px; 
+  }
+  
+  /* Ocultamos los enlaces sueltos del menú en móvil */
+  .nav-links, .nav-right .nav-links { 
+    display: none; 
+  } 
+  
+  /* Hacemos visible el botón de menú hamburguesa */
+  .menu-toggle { 
+    display: flex; 
+  }
+  
+  .nav-logo-box {
+    max-height: var(--nav-h);
+  }
+  
+  .nav-logo-img {
+    max-height: 45px; /* Un poco más pequeño en tablets/móviles para que quepa bien */
+  }
   
   #cafe { padding: 80px 30px; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -765,7 +789,12 @@ footer {
 }
 
 @media (max-width: 600px) {
-  :root { --nav-h: 75px; }
+  :root { --nav-h: 70px; } /* Achicamos un poco el navbar en pantallas muy chicas */
+  
+  .nav-logo-img {
+    max-height: 40px; /* Tamaño ideal para teléfonos */
+  }
+  
   .hero { padding: calc(var(--nav-h) + 40px) 24px 60px; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .hero-actions a { text-align: center; }
