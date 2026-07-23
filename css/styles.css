@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. VARIABLES Y CONFIGURACIÓN BASE
+   1. VARIABLES Y BASE
    ========================================================================== */
 :root {
   --white: #FAFAF7;
@@ -10,13 +10,13 @@
   --gray-light: #F0EFEA;
   --font-serif: 'Playfair Display', serif;
   --font-sans: 'Outfit', sans-serif;
-  --nav-h: 90px;
+  --nav-h: 80px;
 }
 
 * {
   margin: 0;
   padding: 0;
-  box-index: border-box;
+  box-sizing: border-box; /* Corregido */
 }
 
 html {
@@ -29,14 +29,17 @@ html {
 
 body {
   overflow-x: hidden;
+  width: 100%;
 }
 
 /* ==========================================================================
-   2. NAVEGACIÓN (Corrección de tamaño de logo y desborde)
+   2. NAVEGACIÓN (Navbar Fijo y Seguro)
    ========================================================================== */
 nav {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0; 
+  left: 0; 
+  right: 0;
   height: var(--nav-h);
   z-index: 1000;
   border-bottom: 1px solid var(--parchment);
@@ -50,32 +53,25 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 60px;
+  padding: 0 40px;
 }
 
-/* Contenedor del Logo: Forzamos a que no mida más que el nav */
 .nav-logo-box {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
-  max-height: var(--nav-h);
-  padding: 5px 0; /* Pequeño colchón para que no toque los bordes */
-  flex-shrink: 0; /* Evita que el logo se aplaste horizontalmente */
 }
 
-/* Control estricto de la imagen */
 .nav-logo-img {
-  height: 100%; /* Ocupa el 100% del contenedor padre (restando el padding) */
-  max-height: 55px; /* Límite estricto en píxeles para que no desborde */
+  max-height: 45px; /* Altura máxima controlada */
   width: auto;
-  object-fit: contain; /* Mantiene la proporción perfecta sin deformar */
-  display: block;
+  object-fit: contain;
 }
 
 .nav-links { 
   display: flex; 
-  gap: 40px; 
+  gap: 30px; 
   list-style: none; 
   align-items: center;
 }
@@ -97,7 +93,7 @@ nav {
 .nav-right { 
   display: flex; 
   align-items: center; 
-  gap: 40px; 
+  gap: 30px; 
 }
 
 .nav-cta {
@@ -106,7 +102,7 @@ nav {
   text-transform: uppercase;
   color: var(--white);
   background: var(--ink);
-  padding: 10px 26px;
+  padding: 10px 22px;
   text-decoration: none;
   transition: background 0.3s;
 }
@@ -115,54 +111,22 @@ nav {
   background: var(--olive-dark); 
 }
 
-.menu-toggle { 
-  display: none; 
-  background: none; 
-  border: none; 
-  cursor: pointer; 
-  flex-direction: column; 
-  gap: 6px; 
-}
-
-.menu-toggle span { 
-  display: block; 
-  width: 24px; 
-  height: 2px; 
-  background: var(--ink); 
-  transition: 0.3s; 
-}
-
 /* ==========================================================================
-   3. HERO (Limpio y minimalista)
+   3. HERO
    ========================================================================== */
 .hero {
-  min-height: 100vh;
+  min-height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: calc(var(--nav-h) + 60px) 60px 80px;
-  position: relative;
+  padding: calc(var(--nav-h) + 40px) 40px 60px;
   background: var(--white);
-  overflow: hidden;
-}
-
-.hero-bg-word {
-  position: absolute;
-  right: -5%;
-  bottom: 5%;
-  font-family: var(--font-serif);
-  font-size: 28vw;
-  font-style: italic;
-  color: var(--gray-light);
-  line-height: 0.8;
-  pointer-events: none;
-  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .hero-inner {
   max-width: 800px;
-  position: relative;
-  z-index: 2;
 }
 
 .hero-eyebrow {
@@ -170,105 +134,93 @@ nav {
   text-transform: uppercase;
   letter-spacing: 0.25em;
   color: var(--olive);
-  margin-bottom: 24px;
-  font-weight: 400;
+  margin-bottom: 20px;
+  font-weight: 500;
 }
 
 .hero-title {
   font-family: var(--font-serif);
-  font-size: clamp(48px, 7vw, 92px);
+  font-size: clamp(40px, 6vw, 80px);
   font-weight: 400;
   line-height: 1.05;
-  letter-spacing: -0.02em;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .hero-title em {
   font-style: italic;
-  font-weight: 400;
 }
 
 .hero-desc {
-  font-size: clamp(16px, 1.5vw, 20px);
+  font-size: clamp(15px, 1.4vw, 18px);
   line-height: 1.6;
   font-weight: 300;
   color: #4A4A45;
-  margin-bottom: 48px;
+  margin-bottom: 40px;
   max-width: 600px;
 }
 
 .hero-actions {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 /* ==========================================================================
-   4. BOTONES Y ETIQUETAS COMUNES
+   4. BOTONES Y TITULOS
    ========================================================================== */
 .btn-primary {
-  font-size: 12px;
+  font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: var(--white);
   background: var(--ink);
-  padding: 18px 36px;
+  padding: 16px 32px;
   text-decoration: none;
-  transition: background 0.3s, transform 0.2s;
+  transition: background 0.3s;
 }
 
-.btn-primary:hover {
-  background: var(--olive-dark);
-}
+.btn-primary:hover { background: var(--olive-dark); }
 
 .btn-ghost {
-  font-size: 12px;
+  font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: var(--ink);
   background: transparent;
-  padding: 18px 36px;
+  padding: 16px 32px;
   text-decoration: none;
   border: 1px solid var(--parchment);
-  transition: background 0.3s, border-color 0.3s;
+  transition: background 0.3s;
 }
 
-.btn-ghost:hover {
-  background: var(--gray-light);
-  border-color: var(--ink);
-}
+.btn-ghost:hover { background: var(--gray-light); }
 
 .section-label {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.25em;
   color: var(--olive);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   font-weight: 500;
 }
 
 .section-title {
   font-family: var(--font-serif);
-  font-size: clamp(32px, 4vw, 54px);
+  font-size: clamp(28px, 3.5vw, 48px);
   font-weight: 400;
   line-height: 1.15;
-  letter-spacing: -0.01em;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
-.section-title em {
-  font-style: italic;
-}
+.section-title em { font-style: italic; }
 
 /* ==========================================================================
-   5. BANDA DE DATOS DE ORIGEN
+   5. BANDA DE ORIGEN
    ========================================================================== */
 .origin-band {
   background: var(--gray-light);
-  padding: 60px;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+  padding: 50px 40px;
   border-top: 1px solid var(--parchment);
   border-bottom: 1px solid var(--parchment);
 }
@@ -279,32 +231,30 @@ nav {
   letter-spacing: 0.2em;
   color: #706F69;
   text-align: center;
+  margin-bottom: 24px;
 }
 
 .origin-facts {
   max-width: 1200px;
   margin: 0 auto;
-  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 20px;
 }
 
-.origin-fact {
-  text-align: center;
-}
+.origin-fact { text-align: center; }
 
 .origin-val {
   font-family: var(--font-serif);
-  font-size: clamp(24px, 2.5vw, 36px);
+  font-size: clamp(20px, 2vw, 30px);
   color: var(--ink);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .origin-key {
-  font-size: 11px;
+  font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--olive);
@@ -312,80 +262,74 @@ nav {
 
 .origin-divider {
   width: 1px;
-  height: 40px;
+  height: 35px;
   background: var(--parchment);
 }
 
 /* ==========================================================================
-   6. SECCIÓN SOBRE NOSOTROS / HISTORIA
+   6. SECCIÓN HISTORIA
    ========================================================================== */
 #cafe {
-  padding: 140px 60px;
+  padding: 100px 40px;
   max-width: 1400px;
   margin: 0 auto;
 }
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 80px;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
   align-items: center;
 }
 
 .about-body {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.7;
   color: #4A4A45;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   font-weight: 300;
 }
 
 .about-tag-row {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 .about-tag {
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 0.1em;
   background: var(--gray-light);
-  padding: 8px 16px;
+  padding: 6px 14px;
   border: 1px solid var(--parchment);
-  color: var(--ink);
-}
-
-.about-visual {
-  width: 100%;
 }
 
 .about-card-big {
   background: var(--ink);
   color: var(--white);
-  padding: 60px;
+  padding: 50px;
   position: relative;
 }
 
 .about-quote-mark {
   font-family: var(--font-serif);
-  font-size: 90px;
+  font-size: 80px;
   color: var(--olive);
   position: absolute;
-  top: 10px;
-  left: 40px;
+  top: 0px;
+  left: 30px;
   opacity: 0.3;
-  line-height: 1;
 }
 
 .about-quote {
   font-family: var(--font-serif);
-  font-size: 24px;
+  font-size: 22px;
   line-height: 1.5;
   font-style: italic;
   position: relative;
   z-index: 2;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .about-attr {
@@ -396,10 +340,10 @@ nav {
 }
 
 /* ==========================================================================
-   7. SECCIÓN PRODUCTOS
+   7. PRODUCTOS
    ========================================================================== */
 .products {
-  padding: 140px 60px;
+  padding: 100px 40px;
   background: var(--gray-light);
   border-top: 1px solid var(--parchment);
   border-bottom: 1px solid var(--parchment);
@@ -407,60 +351,45 @@ nav {
 
 .products-header {
   max-width: 1400px;
-  margin: 0 auto 60px;
+  margin: 0 auto 40px;
 }
 
 .products-grid {
   max-width: 1400px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
 }
 
 .product-card {
   background: var(--white);
   border: 1px solid var(--parchment);
-  padding: 40px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s, border-color 0.3s;
-}
-
-.product-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--ink);
 }
 
 .product-image-box {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 250px;
   background: #F4F3EE;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
 
 .product-image-box img {
-  width: 85%;
-  height: 85%;
+  max-height: 80%;
+  max-width: 80%;
   object-fit: contain;
-  transition: transform 0.5s;
 }
 
-.product-card:hover .product-image-box img {
-  transform: scale(1.04);
-}
-
-.bg-vintage {
-  background-color: var(--parchment) !important;
-  opacity: 0.9;
-}
+.bg-vintage { background-color: var(--parchment) !important; }
 
 .product-weight {
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--olive);
@@ -472,37 +401,34 @@ nav {
   color: #8A8982;
   margin-bottom: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 .product-name {
   font-family: var(--font-serif);
-  font-size: 26px;
-  font-weight: 400;
-  margin-bottom: 16px;
+  font-size: 22px;
+  margin-bottom: 12px;
 }
 
 .product-desc {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.6;
   color: #5A5952;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   flex-grow: 1;
 }
 
 .product-notes {
   display: flex;
-  gap: 8px;
-  margin-bottom: 32px;
+  gap: 6px;
+  margin-bottom: 24px;
   flex-wrap: wrap;
 }
 
 .product-notes .note {
-  font-size: 10px;
+  font-size: 9px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
   border: 1px solid var(--parchment);
-  padding: 4px 10px;
+  padding: 3px 8px;
   color: #706F69;
 }
 
@@ -511,80 +437,74 @@ nav {
   align-items: center;
   justify-content: space-between;
   border-top: 1px solid var(--parchment);
-  padding-top: 24px;
+  padding-top: 20px;
 }
 
 .product-price {
   font-family: var(--font-serif);
-  font-size: 24px;
-  color: var(--ink);
+  font-size: 22px;
 }
 
 .btn-add {
-  font-size: 11px;
+  font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--white);
   background: var(--ink);
-  padding: 12px 28px;
+  padding: 10px 22px;
   text-decoration: none;
-  transition: background 0.2s;
 }
 
-.btn-add:hover {
-  background: var(--olive);
-}
+.btn-add:hover { background: var(--olive); }
 
 /* ==========================================================================
-   8. SECCIÓN PROCESO
+   8. PROCESO
    ========================================================================== */
 #proceso {
-  padding: 140px 60px;
+  padding: 100px 40px;
   max-width: 1400px;
   margin: 0 auto;
 }
 
 .process-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
 }
 
 .process-step {
   border-top: 1px solid var(--ink);
-  padding-top: 24px;
+  padding-top: 20px;
 }
 
 .process-num {
   font-family: var(--font-serif);
-  font-size: 16px;
+  font-size: 15px;
   font-style: italic;
   color: var(--olive);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .process-title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
-  margin-bottom: 12px;
-  letter-spacing: -0.01em;
+  margin-bottom: 8px;
 }
 
 .process-desc {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.6;
   color: #5A5952;
 }
 
 /* ==========================================================================
-   9. SECCIÓN CTA DE CONTACTO
+   9. CTA & FOOTER
    ========================================================================== */
 .cta-section {
   background: var(--ink);
   color: var(--white);
-  padding: 120px 60px;
+  padding: 100px 40px;
   text-align: center;
-  position: relative;
 }
 
 .cta-eyebrow {
@@ -592,144 +512,107 @@ nav {
   text-transform: uppercase;
   letter-spacing: 0.3em;
   color: var(--olive);
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .cta-title {
   font-family: var(--font-serif);
-  font-size: clamp(36px, 5vw, 64px);
-  line-height: 1.1;
-  font-weight: 400;
-  margin-bottom: 32px;
+  font-size: clamp(32px, 4vw, 56px);
+  margin-bottom: 24px;
 }
 
-.cta-title em {
-  font-style: italic;
-}
+.cta-title em { font-style: italic; }
 
 .cta-sub {
-  font-size: 16px;
+  font-size: 15px;
   color: var(--parchment);
-  margin-bottom: 48px;
+  margin-bottom: 40px;
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
-  font-weight: 300;
 }
 
 .cta-actions {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   justify-content: center;
-  align-items: center;
+  flex-wrap: wrap;
 }
 
 .btn-cta-primary {
-  font-size: 12px;
+  font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: var(--ink);
   background: var(--white);
-  padding: 18px 36px;
+  padding: 16px 32px;
   text-decoration: none;
-  transition: background 0.3s;
-}
-
-.btn-cta-primary:hover {
-  background: var(--parchment);
 }
 
 .btn-cta-ghost {
-  font-size: 12px;
+  font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: var(--white);
-  background: transparent;
-  padding: 18px 36px;
+  padding: 16px 32px;
   text-decoration: none;
-  border: 1px solid rgba(230, 228, 220, 0.3);
-  transition: border-color 0.3s;
+  border: 1px solid rgba(230, 228, 220, 0.4);
 }
 
-.btn-cta-ghost:hover {
-  border-color: var(--white);
-}
-
-/* ==========================================================================
-   10. PIE DE PÁGINA (Footer)
-   ========================================================================== */
 footer {
   background: var(--white);
-  padding: 80px 60px 40px;
+  padding: 60px 40px 30px;
   border-top: 1px solid var(--parchment);
 }
 
 .footer-top {
   max-width: 1400px;
-  margin: 0 auto 60px;
+  margin: 0 auto 40px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
   flex-wrap: wrap;
-  gap: 48px;
+  gap: 30px;
 }
 
 .footer-logo {
   font-family: var(--font-serif);
-  font-size: 22px;
-  color: var(--ink);
-  margin-bottom: 16px;
+  font-size: 20px;
+  margin-bottom: 12px;
 }
 
-.footer-logo span {
-  font-style: italic;
-  color: var(--olive);
-}
+.footer-logo span { font-style: italic; color: var(--olive); }
 
 .footer-tagline {
-  font-size: 14px;
+  font-size: 13px;
   color: #706F69;
-  max-width: 320px;
-  line-height: 1.5;
-}
-
-.footer-links {
-  display: flex;
-  gap: 80px;
+  max-width: 300px;
 }
 
 .footer-col-title {
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
   color: var(--olive);
-  margin-bottom: 20px;
-  font-weight: 500;
+  margin-bottom: 16px;
 }
 
 .footer-col-links {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .footer-col-links a {
   font-size: 13px;
   color: #5A5952;
   text-decoration: none;
-  transition: color 0.2s;
-}
-
-.footer-col-links a:hover {
-  color: var(--ink);
 }
 
 .footer-bottom {
   max-width: 1400px;
   margin: 0 auto;
   border-top: 1px solid var(--parchment);
-  padding-top: 40px;
+  padding-top: 30px;
   display: flex;
   justify-content: space-between;
   font-size: 12px;
@@ -737,70 +620,36 @@ footer {
 }
 
 /* ==========================================================================
-   11. ANIMACIONES Y EFECTOS JAVASCRIPT
+   10. RESPONSIVE DESIGN (Móviles y Tablets)
    ========================================================================== */
-.fade-up {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
-              transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-}
+@media (max-width: 850px) {
+  .left-links, .right-links {
+    display: none; /* Ocultamos links extra en pantallas pequeñas para no romper el menú */
+  }
 
-.fade-up.active {
-  opacity: 1;
-  transform: translateY(0);
-}
+  .nav-content {
+    padding: 0 20px;
+  }
 
-/* ==========================================================================
-   12. RESPONSIVE DESIGN (Ajustes para celulares)
-   ========================================================================== */
-@media (max-width: 992px) {
-  .nav-content { 
-    padding: 0 20px; 
+  .about-grid {
+    grid-template-columns: 1fr;
   }
-  
-  /* Ocultamos los enlaces sueltos del menú en móvil */
-  .nav-links, .nav-right .nav-links { 
-    display: none; 
-  } 
-  
-  /* Hacemos visible el botón de menú hamburguesa */
-  .menu-toggle { 
-    display: flex; 
-  }
-  
-  .nav-logo-box {
-    max-height: var(--nav-h);
-  }
-  
-  .nav-logo-img {
-    max-height: 45px; /* Un poco más pequeño en tablets/móviles para que quepa bien */
-  }
-  
-  #cafe { padding: 80px 30px; }
-  .about-grid { grid-template-columns: 1fr; gap: 40px; }
-  
-  .products { padding: 80px 30px; }
-  #proceso { padding: 80px 30px; }
-  
-  .origin-band { padding: 40px 30px; }
-  .origin-divider { display: none; }
-  .origin-facts { flex-direction: column; gap: 16px; }
-}
 
-@media (max-width: 600px) {
-  :root { --nav-h: 70px; } /* Achicamos un poco el navbar en pantallas muy chicas */
-  
-  .nav-logo-img {
-    max-height: 40px; /* Tamaño ideal para teléfonos */
+  .origin-divider {
+    display: none;
   }
-  
-  .hero { padding: calc(var(--nav-h) + 40px) 24px 60px; }
-  .hero-actions { flex-direction: column; align-items: stretch; }
-  .hero-actions a { text-align: center; }
-  
-  .cta-actions { flex-direction: column; width: 100%; }
-  .cta-actions a { width: 100%; text-align: center; box-sizing: border-box; }
-  
-  .footer-bottom { flex-direction: column; gap: 16px; }
+
+  .origin-facts {
+    flex-direction: column;
+  }
+
+  .hero {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  #cafe, .products, #proceso, .cta-section, footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }

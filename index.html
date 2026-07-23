@@ -15,39 +15,33 @@
 </head>
 <body>
 
-<!-- NAVEGACIÓN -->
+  <!-- NAVEGACIÓN -->
   <nav>
     <div class="nav-content">
-      <!-- LADO IZQUIERDO: Enlaces de navegación -->
-      <ul class="nav-links">
+      <!-- Izquierda: Menú -->
+      <ul class="nav-links left-links">
         <li><a href="#cafe">El Café</a></li>
         <li><a href="#productos">Productos</a></li>
       </ul>
 
-      <!-- CENTRO: Tu logo real -->
+      <!-- Centro: Logo -->
       <a href="#" class="nav-logo-box">
         <img src="assets/images/logo.png" alt="Café El Silencio" class="nav-logo-img">
       </a>
 
-      <!-- LADO DERECHO: Enlaces y Botón -->
+      <!-- Derecha: Menú + Botón -->
       <div class="nav-right">
-        <ul class="nav-links">
+        <ul class="nav-links right-links">
           <li><a href="#proceso">Proceso</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
         <a href="#productos" class="nav-cta">Comprar</a>
-        <button class="menu-toggle" aria-label="Abrir menú">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
       </div>
     </div>
   </nav>
 
-  <!-- HERO (Limpio de imagen trasera para que destaque el Nav) -->
+  <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg-word">Silencio</div>
     <div class="hero-inner">
       <div class="hero-eyebrow">Café de origen · Cali, Colombia</div>
       <h1 class="hero-title">Café El <em>Silencio</em></h1>
@@ -57,11 +51,10 @@
         <a href="#cafe" class="btn-ghost">Nuestra historia</a>
       </div>
     </div>
-    <div class="hero-strip"></div>
   </section>
 
   <!-- BANDA DE DATOS -->
-  <div class="origin-band fade-up">
+  <div class="origin-band">
     <div class="origin-band-title">Cali · Producción Orgánica</div>
     <div class="origin-facts">
       <div class="origin-fact">
@@ -86,10 +79,10 @@
     </div>
   </div>
 
-  <!-- HISTORIA (Tu historia real) -->
+  <!-- HISTORIA -->
   <section id="cafe">
     <div class="about-grid">
-      <div class="about-text fade-up">
+      <div class="about-text">
         <div class="section-label">Nuestra Historia</div>
         <h2 class="section-title">Ciencia chilena,<br><em>tierra caleña</em></h2>
         <p class="about-body">Café El Silencio nace cuando un agrónomo chileno decide mudarse a Cali, Colombia, con el sueño de producir un café de especialidad excepcional. Combinando el conocimiento técnico con la riqueza del suelo colombiano, creamos un proyecto con identidad única.</p>
@@ -101,7 +94,7 @@
         </div>
       </div>
       
-      <div class="about-visual fade-up">
+      <div class="about-visual">
         <div class="about-card-big">
           <span class="about-quote-mark">"</span>
           <p class="about-quote">Dejamos que la naturaleza haga su trabajo. Nuestras gallinas protegen el suelo, nuestra gente cosecha el futuro.</p>
@@ -113,7 +106,7 @@
 
   <!-- PRODUCTOS -->
   <section id="productos" class="products">
-    <div class="products-header fade-up">
+    <div class="products-header">
       <div>
         <div class="section-label">Productos disponibles</div>
         <h2 class="section-title">Ediciones Especiales de <em>2.5 kg</em></h2>
@@ -121,8 +114,8 @@
     </div>
 
     <div class="products-grid">
-      <!-- PRODUCTO 1: Medio-Alto -->
-      <div class="product-card fade-up">
+      <!-- PRODUCTO 1 -->
+      <div class="product-card">
         <div class="product-image-box">
           <img src="assets/images/Cafe 2500gr.png" alt="Café El Silencio 2.5kg Tostado Medio-Alto">
         </div>
@@ -139,8 +132,8 @@
         </div>
       </div>
 
-      <!-- PRODUCTO 2: Medio -->
-      <div class="product-card fade-up">
+      <!-- PRODUCTO 2 -->
+      <div class="product-card">
         <div class="product-image-box">
           <img src="assets/images/Cafe 2500gr.png" alt="Café El Silencio 2.5kg Tostado Medio">
         </div>
@@ -157,8 +150,8 @@
         </div>
       </div>
 
-      <!-- PRODUCTO 3: Molido 2023 -->
-      <div class="product-card fade-up">
+      <!-- PRODUCTO 3 -->
+      <div class="product-card">
         <div class="product-image-box bg-vintage">
           <img src="assets/images/Cafe 2500gr.png" alt="Café El Silencio 2.5kg Molido 2023">
         </div>
@@ -179,27 +172,27 @@
 
   <!-- PROCESO -->
   <section id="proceso">
-    <div class="fade-up">
+    <div>
       <div class="section-label">Sostenibilidad en cada paso</div>
       <h2 class="section-title">El método del <em>Silencio</em></h2>
     </div>
     <div class="process-row">
-      <div class="process-step fade-up">
+      <div class="process-step">
         <div class="process-num">01</div>
         <div class="process-title">Control Natural</div>
         <p class="process-desc">Nuestras gallinas recorren libremente el terreno, eliminando plagas de manera biológica y abonando la tierra.</p>
       </div>
-      <div class="process-step fade-up">
+      <div class="process-step">
         <div class="process-num">02</div>
         <div class="process-title">Cosecha Local</div>
         <p class="process-desc">Trabajamos codo a codo con recolectores locales de Cali, garantizando un empleo justo y una selección impecable.</p>
       </div>
-      <div class="process-step fade-up">
+      <div class="process-step">
         <div class="process-num">03</div>
         <div class="process-title">Perfil Técnico</div>
         <p class="process-desc">Supervisión agronómica estricta en el tueste para garantizar consistencia óptima en lotes de 2.5 kg.</p>
       </div>
-      <div class="process-step fade-up">
+      <div class="process-step">
         <div class="process-num">04</div>
         <div class="process-title">Despacho Directo</div>
         <p class="process-desc">Empacado minuciosamente y gestionado directamente a través de nuestros canales oficiales.</p>
@@ -207,7 +200,7 @@
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- CTA CONTACTO -->
   <section id="contacto" class="cta-section">
     <div class="cta-eyebrow">Café El Silencio</div>
     <h2 class="cta-title">Empieza tu<br><em>ritual</em> hoy</h2>
@@ -242,6 +235,5 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
 </body>
 </html>
