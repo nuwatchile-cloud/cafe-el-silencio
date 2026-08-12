@@ -3,34 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Café El Silencio — Ginebra, Valle del Cauca</title>
-  <meta name="description" content="Café de origen colombiano. Variedad Castillo, tostión media, en grano. Finca El Silencio, Ginebra, Valle del Cauca.">
-  <meta property="og:title" content="Café El Silencio">
-  <meta property="og:description" content="Variedad Castillo, tostión media, en grano. Finca propia en Ginebra, Valle del Cauca.">
-  <meta property="og:url" content="https://elsilenciocafe.com">
-  <meta property="og:image" content="assets/images/og-image.jpg">
-  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <title>Café El Silencio — De Cali a tu Taza</title>
+  
+  <!-- Tipografías -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+  
+  <!-- Estilos Vinculados -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
   <!-- NAVEGACIÓN -->
-  <nav id="main-nav">
+  <nav>
     <div class="nav-content">
+      <!-- Izquierda: Menú -->
       <ul class="nav-links left-links">
-        <li><a href="#historia">El Café</a></li>
+        <li><a href="#cafe">El Café</a></li>
         <li><a href="#productos">Productos</a></li>
       </ul>
+
+      <!-- Centro: Logo -->
       <a href="#" class="nav-logo-box">
         <img src="assets/images/logo.png" alt="Café El Silencio" class="nav-logo-img">
       </a>
+
+      <!-- Derecha: Menú + Botón -->
       <div class="nav-right">
         <ul class="nav-links right-links">
           <li><a href="#proceso">Proceso</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contacto">Contacto</a></li>
         </ul>
         <a href="#productos" class="nav-cta">Comprar</a>
       </div>
@@ -40,350 +43,132 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
-      <div class="hero-eyebrow">Finca El Silencio · Desde 2019</div>
+      <div class="hero-eyebrow">Café de origen · Cali, Colombia</div>
       <h1 class="hero-title">Café El <em>Silencio</em></h1>
-      <div class="hero-loc">Ginebra, Valle del Cauca · 1.500 m.s.n.m.</div>
-      <p class="hero-desc">
-        Un agrónomo chileno, una finca colombiana, cinco años de trabajo con la tierra.
-        Variedad Castillo, tostión media, siempre en grano — con notas de chocolate, caramelo y acidez cítrica limpia.
-      </p>
+      <p class="hero-desc">Variedad Castillo cultivada bajo la mirada experta de la agronomía chilena en tierras caleñas. Presentaciones de 2.5 kg diseñadas para los amantes del café serio.</p>
       <div class="hero-actions">
-        <a href="#productos" class="btn-primary">Ver los productos</a>
-        <a href="#historia" class="btn-ghost">Nuestra historia</a>
+        <a href="#productos" class="btn-primary">Ver productos</a>
+        <a href="#cafe" class="btn-ghost">Nuestra historia</a>
       </div>
+
     </div>
-  </section>
-
-  <!-- GALERIA / CARRUSEL -->
-  <section class="galeria" aria-label="Galería de la finca">
-    <div class="galeria-header">
-      <div>
-        <div class="galeria-label">Finca El Silencio</div>
-        <h2 class="galeria-title">La tierra donde<br><em>nace el café</em></h2>
-      </div>
-      <div class="galeria-controls">
-        <button class="galeria-btn" id="gal-prev" aria-label="Anterior">&#8592;</button>
-        <button class="galeria-btn" id="gal-next" aria-label="Siguiente">&#8594;</button>
-      </div>
-    </div>
-
-    <div class="galeria-track-wrap" id="gal-wrap">
-      <div class="galeria-track" id="gal-track">
-
-        <div class="galeria-slide">
-          <img src="assets/images/finca-01.jpg" alt="Vista general de la finca El Silencio"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="galeria-placeholder" style="display:none">
-            <div class="galeria-placeholder-ring">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                <circle cx="8.5" cy="8.5" r="1.5"/>
-                <polyline points="21 15 16 10 5 21"/>
-              </svg>
-            </div>
-            <span class="galeria-placeholder-label">finca-01.jpg</span>
-          </div>
-          <div class="galeria-caption">
-            <span class="galeria-caption-text">Vista general</span>
-            <span class="galeria-caption-loc">Ginebra, Valle</span>
-          </div>
-        </div>
-
-        <div class="galeria-slide">
-          <img src="assets/images/finca-02.jpg" alt="Plantas de café Castillo"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="galeria-placeholder" style="display:none">
-            <div class="galeria-placeholder-ring">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                <circle cx="8.5" cy="8.5" r="1.5"/>
-                <polyline points="21 15 16 10 5 21"/>
-              </svg>
-            </div>
-            <span class="galeria-placeholder-label">finca-02.jpg</span>
-          </div>
-          <div class="galeria-caption">
-            <span class="galeria-caption-text">Plantas Castillo</span>
-            <span class="galeria-caption-loc">1.500 m.s.n.m.</span>
-          </div>
-        </div>
-
-        <div class="galeria-slide">
-          <img src="assets/images/finca-03.jpg" alt="Cerezas de café maduras"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="galeria-placeholder" style="display:none">
-            <div class="galeria-placeholder-ring">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                <circle cx="8.5" cy="8.5" r="1.5"/>
-                <polyline points="21 15 16 10 5 21"/>
-              </svg>
-            </div>
-            <span class="galeria-placeholder-label">finca-03.jpg</span>
-          </div>
-          <div class="galeria-caption">
-            <span class="galeria-caption-text">Cerezas maduras</span>
-            <span class="galeria-caption-loc">Cosecha 2026</span>
-          </div>
-        </div>
-
-        <div class="galeria-slide">
-          <img src="assets/images/finca-04.jpg" alt="Paisaje del Valle del Cauca"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="galeria-placeholder" style="display:none">
-            <div class="galeria-placeholder-ring">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                <circle cx="8.5" cy="8.5" r="1.5"/>
-                <polyline points="21 15 16 10 5 21"/>
-              </svg>
-            </div>
-            <span class="galeria-placeholder-label">finca-04.jpg</span>
-          </div>
-          <div class="galeria-caption">
-            <span class="galeria-caption-text">Paisaje</span>
-            <span class="galeria-caption-loc">Valle del Cauca</span>
-          </div>
-        </div>
-
-        <div class="galeria-slide">
-          <img src="assets/images/finca-05.jpg" alt="Detalle del cultivo"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="galeria-placeholder" style="display:none">
-            <div class="galeria-placeholder-ring">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                <circle cx="8.5" cy="8.5" r="1.5"/>
-                <polyline points="21 15 16 10 5 21"/>
-              </svg>
-            </div>
-            <span class="galeria-placeholder-label">finca-05.jpg</span>
-          </div>
-          <div class="galeria-caption">
-            <span class="galeria-caption-text">Detalle del cultivo</span>
-            <span class="galeria-caption-loc">Finca El Silencio</span>
-          </div>
-        </div>
-
-        <div class="galeria-slide">
-          <img src="assets/images/finca-06.jpg" alt="Proceso de secado"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="galeria-placeholder" style="display:none">
-            <div class="galeria-placeholder-ring">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                <circle cx="8.5" cy="8.5" r="1.5"/>
-                <polyline points="21 15 16 10 5 21"/>
-              </svg>
-            </div>
-            <span class="galeria-placeholder-label">finca-06.jpg</span>
-          </div>
-          <div class="galeria-caption">
-            <span class="galeria-caption-text">Proceso de secado</span>
-            <span class="galeria-caption-loc">Finca El Silencio</span>
-          </div>
-        </div>
-
-      </div><!-- /gal-track -->
-    </div><!-- /gal-wrap -->
-
-    <div class="galeria-dots" id="gal-dots"></div>
   </section>
 
   <!-- BANDA DE DATOS -->
-  <div class="stripe-band">
-    <div class="stripe-item">
-      <div class="stripe-num">5</div>
-      <div>
-        <div class="stripe-key">Años</div>
-        <div class="stripe-val">Levantando la finca</div>
+  <div class="origin-band">
+    <div class="origin-band-title">Cali · Producción Orgánica</div>
+    <div class="origin-facts">
+      <div class="origin-fact">
+        <div class="origin-val">Castillo</div>
+        <div class="origin-key">Variedad</div>
       </div>
-    </div>
-    <div class="stripe-item">
-      <div class="stripe-num">1.500</div>
-      <div>
-        <div class="stripe-key">m.s.n.m.</div>
-        <div class="stripe-val">Ginebra, Valle del Cauca</div>
+      <div class="origin-divider"></div>
+      <div class="origin-fact">
+        <div class="origin-val">2.5 kg</div>
+        <div class="origin-key">Presentación</div>
       </div>
-    </div>
-    <div class="stripe-item">
-      <div class="stripe-num">100%</div>
-      <div>
-        <div class="stripe-key">Arábica</div>
-        <div class="stripe-val">Variedad Castillo</div>
+      <div class="origin-divider"></div>
+      <div class="origin-fact">
+        <div class="origin-val">Manual</div>
+        <div class="origin-key">Obra de Mano Local</div>
       </div>
-    </div>
-    <div class="stripe-item">
-      <div class="stripe-num">0</div>
-      <div>
-        <div class="stripe-key">Intermediarios</div>
-        <div class="stripe-val">De la finca a ti</div>
+      <div class="origin-divider"></div>
+      <div class="origin-fact">
+        <div class="origin-val">Ecológico</div>
+        <div class="origin-key">Control con Gallinas</div>
       </div>
     </div>
   </div>
 
   <!-- HISTORIA -->
-  <section id="historia" class="historia">
-    <div class="historia-grid">
-
-      <div class="historia-text fade-up">
+  <section id="cafe">
+    <div class="about-grid">
+      <div class="about-text">
         <div class="section-label">Nuestra Historia</div>
         <h2 class="section-title">Ciencia chilena,<br><em>tierra caleña</em></h2>
-        <p class="historia-body">
-          Todo empezó con el sueño de un agrónomo chileno: tener su propia finca. El trabajo lo trajo a Colombia, y Colombia le mostró el café. La decisión fue inmediata.
-        </p>
-        <blockquote class="historia-highlight">
-          "La finca ya se llamaba El Silencio cuando llegué. Sentí que ese nombre lo decía todo."
-        </blockquote>
-        <p class="historia-body">
-          Ubicada en Ginebra, Valle del Cauca, a 1.500 metros sobre el nivel del mar, Finca El Silencio ya tenía plantas de café Castillo — una variedad arábica especial, desarrollada en Colombia para adaptarse perfectamente a su clima y resistir las infecciones locales.
-        </p>
-        <p class="historia-body">
-          Llevamos cinco años construyendo esta finca con un solo norte: ser lo más sustentables posible. La menor intervención química, el trabajo con gente del lugar, y el control orgánico de plagas — incluyendo gallinas que cuidan los cafetales de manera natural.
-        </p>
-        <p class="historia-body">
-          Hoy queremos llevar ese saber más lejos — el chocolate y la panela de la región también forman parte de nuestra visión. Porque Colombia tiene mucho más que contar.
-        </p>
-        <div class="historia-tags">
-          <span class="historia-tag">Raíces chilenas</span>
-          <span class="historia-tag">Corazón colombiano</span>
-          <span class="historia-tag">Cultivo sustentable</span>
-          <span class="historia-tag">Mano de obra local</span>
-          <span class="historia-tag">Control orgánico</span>
+        <p class="about-body">Café El Silencio nace cuando un agrónomo chileno decide mudarse a Cali, Colombia, con el sueño de producir un café de especialidad excepcional. Combinando el conocimiento técnico con la riqueza del suelo colombiano, creamos un proyecto con identidad única.</p>
+        <p class="about-body">Creemos firmemente en el respeto al entorno y a la comunidad. Por eso, toda nuestra producción se apoya en mano de obra local y en un sistema de control de plagas netamente orgánico y natural, utilizando gallinas para el cuidado directo de los cafetales.</p>
+        <div class="about-tag-row">
+          <span class="about-tag">Agronomía Chilena</span>
+          <span class="about-tag">Mano de Obra Local</span>
+          <span class="about-tag">Control Orgánico</span>
         </div>
       </div>
-
-      <div class="historia-right fade-up">
-        <div class="finca-card">
-          <h3 class="finca-card-title">La variedad Castillo</h3>
-          <p class="finca-card-body">
-            Desarrollada por Cenicafé en Colombia, la variedad Castillo es arábica 100% — especialmente seleccionada para el clima colombiano. Resiste la roya sin sacrificar calidad en taza. Ideal para altitudes entre 1.200 y 1.800 m.s.n.m.
-          </p>
-        </div>
-        <div class="finca-card finca-card--terra">
-          <h3 class="finca-card-title">Ginebra, Valle del Cauca</h3>
-          <p class="finca-card-body">
-            Un municipio cafetero con tradición agrícola de siglos. Sus suelos fértiles, temperatura estable y ciclos de lluvia generosos hacen de esta zona un terroir excepcional para el café.
-          </p>
-        </div>
-        <div class="finca-card">
-          <h3 class="finca-card-title">La visión: más allá del café</h3>
-          <p class="finca-card-body">
-            Chocolate y panela son los próximos capítulos. La región tiene una tradición agrícola rica que queremos traer al país con la misma dedicación con que trabajamos el café.
-          </p>
+      
+      <div class="about-visual">
+        <div class="about-card-big">
+          <span class="about-quote-mark">"</span>
+          <p class="about-quote">Dejamos que la naturaleza haga su trabajo. Nuestras gallinas protegen el suelo, nuestra gente cosecha el futuro.</p>
+          <div class="about-attr">— Café El Silencio</div>
         </div>
       </div>
-
     </div>
   </section>
 
   <!-- PRODUCTOS -->
   <section id="productos" class="products">
-    <div class="products-header fade-up">
+    <div class="products-header">
       <div>
         <div class="section-label">Productos disponibles</div>
-        <h2 class="section-title">Ediciones de <em>2.5 kg</em></h2>
-      </div>
-      <p class="products-subtitle">
-        Variedad Castillo. Siempre en grano — excepto la edición vintage.
-      </p>
-    </div>
-
-    <div class="products-grid">
-
-      <div class="product-card fade-up">
-        <div class="product-image-box">
-          <img src="assets/images/Cafe 2500gr.png" alt="Café El Silencio 2.5kg Tostado Medio-Alto">
-        </div>
-        <div class="product-weight">2.5 kg</div>
-        <div class="product-unit">En grano · Cosecha 2026</div>
-        <h3 class="product-name">Tostado Medio-Alto</h3>
-        <p class="product-desc">
-          Nuestra edición más robusta de este año. Un tueste medio-alto que resalta notas intensas, ideal para los que buscan un café con cuerpo y carácter maduro.
-        </p>
-        <div class="product-notes">
-          <span class="note">Castillo</span>
-          <span class="note">Intenso</span>
-          <span class="note">Orgánico</span>
-        </div>
-        <div class="product-footer">
-          <div class="product-price">$50.000</div>
-          <a class="btn-add"
-             href="https://wa.me/56964427207?text=Hola!%20Me%20interesa%20el%20Caf%C3%A9%20de%202.5kg%20Tostado%20Medio-Alto%20(%2450.000)"
-             target="_blank" rel="noopener">Pedir</a>
-        </div>
-      </div>
-
-      <div class="product-card product-card--featured fade-up" style="--delay: 0.1s">
-        <div class="product-image-box">
-          <img src="assets/images/Cafe 2500gr.png" alt="Café El Silencio 2.5kg Tostado Medio">
-        </div>
-        <div class="product-weight">2.5 kg</div>
-        <div class="product-unit">En grano · Cosecha 2026</div>
-        <h3 class="product-name">Tostado Medio</h3>
-        <p class="product-desc">
-          El balance perfecto de la cosecha de este año. Tostión media que conserva la acidez limpia y las sutiles notas acarameladas de los frutos protegidos orgánicamente.
-        </p>
-        <div class="product-notes">
-          <span class="note">Castillo</span>
-          <span class="note">Balanceado</span>
-          <span class="note">Cosecha 2026</span>
-        </div>
-        <div class="product-footer">
-          <div class="product-price">$47.500</div>
-          <a class="btn-add"
-             href="https://wa.me/56964427207?text=Hola!%20Me%20interesa%20el%20Caf%C3%A9%20de%202.5kg%20Tostado%20Medio%20(%2447.500)"
-             target="_blank" rel="noopener">Pedir</a>
-        </div>
-      </div>
-
-      <div class="product-card fade-up" style="--delay: 0.2s">
-        <div class="product-image-box product-image-box--vintage">
-          <img src="assets/images/Cafe 2500gr.png" alt="Café El Silencio 2.5kg Molido Vintage 2023">
-        </div>
-        <div class="product-weight">2.5 kg</div>
-        <div class="product-unit">Molido · Cosecha 2023</div>
-        <h3 class="product-name">Edición Vintage</h3>
-        <p class="product-desc">
-          Una alternativa lista para usar. Café variedad Castillo de la cosecha 2023 ya molido, ideal para preparaciones rápidas y tradicionales. El mejor precio por kilo.
-        </p>
-        <div class="product-notes">
-          <span class="note">Castillo</span>
-          <span class="note">Molido</span>
-          <span class="note">Precio especial</span>
-        </div>
-        <div class="product-footer">
-          <div class="product-price">$45.000</div>
-          <a class="btn-add"
-             href="https://wa.me/56964427207?text=Hola!%20Me%20interesa%20el%20Caf%C3%A9%20de%202.5kg%20Molido%202023%20(%2445.000)"
-             target="_blank" rel="noopener">Pedir</a>
-        </div>
+        <h2 class="section-title">Ediciones Especiales de <em>2.5 kg</em></h2>
       </div>
 
     </div>
   </section>
 
-  <!-- PROCESO -->
-  <section id="proceso" class="process">
-    <div class="fade-up">
-      <div class="section-label">Sostenibilidad en cada paso</div>
-      <h2 class="section-title">El método del <em>Silencio</em></h2>
-    </div>
-    <div class="process-grid">
-      <div class="process-step fade-up">
-        <span class="process-num">01</span>
-        <h3 class="process-title">Control natural</h3>
-        <p class="process-desc">Nuestras gallinas recorren libremente el terreno, eliminando plagas de manera biológica y abonando la tierra sin químicos.</p>
+    <div class="products-grid">
+      <!-- PRODUCTO 1 -->
+      <div class="product-card">
+        <div class="product-image-box">
+          <img src="assets/images/Cafe 2500gr.png" alt="Café El Silencio 2.5kg Tostado Medio-Alto">
+        </div>
+        <div class="product-weight">2.5 kg</div>
+        <div class="product-unit">En grano · Cosecha 2026</div>
+        <div class="product-name">Tostado Medio-Alto</div>
+        <p class="product-desc">Nuestra edición más robusta de este año. Un tueste medio-alto que resalta notas intensas, ideal para los que buscan un café con cuerpo y carácter maduro.</p>
+        <div class="product-notes">
+          <span class="note">Castillo</span><span class="note">Intenso</span><span class="note">Orgánico</span>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$50.000</div>
+          <a class="btn-add" href="https://wa.me/56964427207?text=Hola%21%20Me%20interesa%20el%20Caf%C3%A9%20de%202.5kg%20Tostado%20Medio-Alto%20%28%2450.000%29" target="_blank">Pedir</a>
+        </div>
       </div>
-      <div class="process-step fade-up" style="--delay: 0.1s">
-        <span class="process-num">02</span>
-        <h3 class="process-title">Cosecha local</h3>
-        <p class="process-desc">Trabajamos con recolectores de la zona, garantizando empleo justo y una selección impecable de solo cerezas maduras.</p>
+
+      <!-- PRODUCTO 2 -->
+      <div class="product-card">
+        <div class="product-image-box">
+          <img src="assets/images/Cafe 2500gr.png" alt="Café El Silencio 2.5kg Tostado Medio">
+        </div>
+        <div class="product-weight">2.5 kg</div>
+        <div class="product-unit">En grano · Cosecha 2026</div>
+        <div class="product-name">Tostado Medio</div>
+        <p class="product-desc">El balance perfecto de la cosecha de este año. Tostión media que conserva la acidez limpia y las sutiles notas acarameladas de los frutos protegidos orgánicamente.</p>
+        <div class="product-notes">
+          <span class="note">Castillo</span><span class="note">Balanceado</span><span class="note">Cosecha 2026</span>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$47.500</div>
+          <a class="btn-add" href="https://wa.me/56964427207?text=Hola%21%20Me%20interesa%20el%20Caf%C3%A9%20de%202.5kg%20Tostado%20Medio%20%28%2447.500%29" target="_blank">Pedir</a>
+        </div>
       </div>
-      <div class="process-step fade-up" style="--delay: 0.2s">
-        <span class="process-num">03</span>
-        <h3 class="process-title">Perfil técnico</h3>
-        <p class="process-desc">Supervisión agronómica estricta en el tueste para garantizar consistencia. Tostión media que resalta el chocolate y caramelo del Castillo.</p>
+
+      <!-- PRODUCTO 3 -->
+      <div class="product-card">
+        <div class="product-image-box bg-vintage">
+          <img src="assets/images/Cafe 2500gr.png" alt="Café El Silencio 2.5kg Molido 2023">
+        </div>
+        <div class="product-weight">2.5 kg</div>
+        <div class="product-unit">Molido · Cosecha 2023</div>
+        <div class="product-name">Edición Vintage Molido</div>
+        <p class="product-desc">Una alternativa económica y lista para usar. Café variedad Castillo de la cosecha 2023 ya molido, ideal para preparaciones rápidas y tradicionales.</p>
+        <div class="product-notes">
+          <span class="note">Castillo</span><span class="note">Molido</span><span class="note">Precio Especial</span>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">$45.000</div>
+          <a class="btn-add" href="https://wa.me/56964427207?text=Hola%21%20Me%20interesa%20el%20Caf%C3%A9%20de%202.5kg%20Molido%202023%20%28%2445.000%29" target="_blank">Pedir</a>
+        </div>
       </div>
       <div class="process-step fade-up" style="--delay: 0.3s">
         <span class="process-num">04</span>
@@ -399,130 +184,72 @@
       <div class="section-label">Preguntas frecuentes</div>
       <h2 class="section-title">Lo que más<br>nos <em>preguntan</em></h2>
     </div>
+  </section>
 
-    <div class="faq-grid fade-up">
-
-      <div class="faq-item" role="button" tabindex="0" aria-expanded="false">
-        <div class="faq-q">
-          El café viene en grano o molido?
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </div>
-        <div class="faq-a">
-          En grano, excepto la Edición Vintage que ya viene molida. El grano preserva mucho mejor los aromas y sabores hasta el momento en que lo preparas. Si necesitas molido en otra presentación, cuéntanos por WhatsApp y lo coordinamos.
-        </div>
+  <!-- PROCESO -->
+  <section id="proceso">
+    <div>
+      <div class="section-label">Sostenibilidad en cada paso</div>
+      <h2 class="section-title">El método del <em>Silencio</em></h2>
+    </div>
+    <div class="process-row">
+      <div class="process-step">
+        <div class="process-num">01</div>
+        <div class="process-title">Control Natural</div>
+        <p class="process-desc">Nuestras gallinas recorren libremente el terreno, eliminando plagas de manera biológica y abonando la tierra.</p>
       </div>
-
-      <div class="faq-item" role="button" tabindex="0" aria-expanded="false">
-        <div class="faq-q">
-          A dónde envían y cuánto demora?
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </div>
-        <div class="faq-a">
-          Enviamos a toda Colombia. El tiempo de entrega varía entre 2 y 5 días hábiles según tu ciudad. Para Cali y ciudades principales suele ser 2–3 días. Coordinamos todo por WhatsApp y te avisamos cuando tu paquete sale.
-        </div>
+      <div class="process-step">
+        <div class="process-num">02</div>
+        <div class="process-title">Cosecha Local</div>
+        <p class="process-desc">Trabajamos codo a codo con recolectores locales de Cali, garantizando un empleo justo y una selección impecable.</p>
       </div>
-
-      <div class="faq-item" role="button" tabindex="0" aria-expanded="false">
-        <div class="faq-q">
-          Cómo se prepara? Qué método recomiendan?
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </div>
-        <div class="faq-a">
-          El Castillo funciona bien en casi cualquier método. Para resaltar el chocolate y caramelo: prensa francesa o goteo (V60, Chemex). Para la acidez cítrica más limpia: Aeropress o pour-over. En espresso también queda excelente. Molido medio para goteo, fino para espresso.
-        </div>
+      <div class="process-step">
+        <div class="process-num">03</div>
+        <div class="process-title">Perfil Técnico</div>
+        <p class="process-desc">Supervisión agronómica estricta en el tueste para garantizar consistencia óptima en lotes de 2.5 kg.</p>
       </div>
-
-      <div class="faq-item" role="button" tabindex="0" aria-expanded="false">
-        <div class="faq-q">
-          Qué es la variedad Castillo?
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </div>
-        <div class="faq-a">
-          Es una variedad arábica 100% desarrollada por Cenicafé en Colombia para resistir la roya — el hongo que más afecta los cafetales — sin sacrificar calidad. Es una de las variedades más representativas del café colombiano especial.
-        </div>
+      <div class="process-step">
+        <div class="process-num">04</div>
+        <div class="process-title">Despacho Directo</div>
+        <p class="process-desc">Empacado minuciosamente y gestionado directamente a través de nuestros canales oficiales.</p>
       </div>
-
-      <div class="faq-item" role="button" tabindex="0" aria-expanded="false">
-        <div class="faq-q">
-          Cómo hago mi pedido?
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </div>
-        <div class="faq-a">
-          Por ahora los pedidos van directo por WhatsApp. Haz clic en el botón "Pedir" del producto que quieras y te abrirá un chat con el mensaje listo. Confirmamos disponibilidad, forma de pago y datos de envío contigo directamente.
-        </div>
-      </div>
-
-      <div class="faq-item" role="button" tabindex="0" aria-expanded="false">
-        <div class="faq-q">
-          El cultivo es orgánico?
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </div>
-        <div class="faq-a">
-          Trabajamos con mínima intervención química y máxima sustentabilidad, incluyendo gallinas para el control orgánico de plagas. No somos oficialmente certificados orgánicos aún, pero ese es nuestro camino y norte permanente.
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- CTA CONTACTO -->
   <section id="contacto" class="cta-section">
-    <div class="cta-eyebrow">elsilenciocafe.com</div>
+    <div class="cta-eyebrow">Café El Silencio</div>
     <h2 class="cta-title">Empieza tu<br><em>ritual</em> hoy</h2>
-    <p class="cta-sub">
-      Escríbenos directamente para coordinar tu pedido. Tres presentaciones, una sola variedad, un solo origen.
-    </p>
+    <p class="cta-sub">Escríbenos directamente para coordinar tus pedidos corporativos o personales.</p>
     <div class="cta-actions">
-      <a href="https://wa.me/56964427207?text=Hola!%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Caf%C3%A9%20El%20Silencio"
-         target="_blank" rel="noopener" class="btn-cta-primary">Escribir al WhatsApp</a>
-      <a href="https://www.instagram.com/cafe.el.silencio/" target="_blank" rel="noopener" class="btn-cta-ghost">
-        Instagram @cafe.el.silencio
-      </a>
+      <a href="https://wa.me/56964427207?text=Hola%21%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Caf%C3%A9%20El%20Silencio" target="_blank" class="btn-cta-primary">Escribir al WhatsApp</a>
+      <a href="https://instagram.com/cafe.el.silencio" target="_blank" class="btn-cta-ghost">Instagram →</a>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-top">
-      <div class="footer-brand">
+      <div>
         <div class="footer-logo">Café El <span>Silencio</span></div>
-        <p class="footer-tagline">
-          Variedad Castillo · Ginebra, Valle del Cauca · 1.500 m.s.n.m.<br>
-          Agronomía chilena, tierra y gente colombiana.
-        </p>
-        <a href="https://www.instagram.com/cafe.el.silencio/" target="_blank" rel="noopener" class="footer-ig">
-          @cafe.el.silencio
-        </a>
-        <div class="footer-domain">elsilenciocafe.com</div>
+        <p class="footer-tagline">Agronomía chilena en Cali, Colombia. Formatos de 2.5 kg sustentables.</p>
       </div>
-
-      <div class="footer-col">
-        <div class="footer-col-title">Productos</div>
-        <ul class="footer-col-links">
-          <li><a href="#productos">Tostado Medio-Alto · $50.000</a></li>
-          <li><a href="#productos">Tostado Medio · $47.500</a></li>
-          <li><a href="#productos">Edición Vintage · $45.000</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <div class="footer-col-title">Contacto</div>
-        <ul class="footer-col-links">
-          <li><a href="mailto:nuwat.chile@gmail.com">nuwat.chile@gmail.com</a></li>
-          <li><a href="https://wa.me/56964427207" target="_blank" rel="noopener">WhatsApp directo</a></li>
-          <li><a href="https://www.instagram.com/cafe.el.silencio/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="#historia">Nuestra historia</a></li>
-          <li><a href="#faq">Preguntas frecuentes</a></li>
-        </ul>
+      <div class="footer-links">
+        <div>
+          <div class="footer-col-title">Contacto</div>
+          <ul class="footer-col-links">
+            <li><a href="mailto:nuwat.chile@gmail.com">nuwat.chile@gmail.com</a></li>
+            <li><a href="https://instagram.com/cafe.el.silencio" target="_blank">@cafe.el.silencio</a></li>
+            <li><a href="https://wa.me/56964427207" target="_blank">WhatsApp Directo</a></li>
+          </ul>
+        </div>
       </div>
     </div>
-
     <div class="footer-bottom">
-      <span>© 2026 Café El Silencio · Finca El Silencio, Ginebra, Valle del Cauca, Colombia</span>
+      <span>© 2026 Café El Silencio.</span>
       <span>Hecho con cuidado.</span>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
 </body>
 </html>
